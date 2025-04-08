@@ -1,0 +1,95 @@
+Codefile:01403_hrg_mnl06.r 
+
+
+codebookentries('altij',asm)
+
+altij[] (Length:9476, # of nonmissing elements:9476)
+  Frequency PctShare LevelCode LevelText
+1      2369       25         1      CART
+2      2369       25         2     CARNT
+3      1039       11         3       BUS
+4      1089       11         4        TR
+5      1280       14         5        BW
+6      1330       14         6        LR
+
+
+apollo_modelOutput(model)
+Model run by Brosig using Apollo 0.3.5 on R 4.4.3 for Windows.
+Please acknowledge the use of Apollo by citing Hess & Palma (2019)
+  DOI 10.1016/j.jocm.2019.100170
+  www.ApolloChoiceModelling.com
+
+Model name                                  : 01403_hrg_mnl6
+Model description                           : 01403a_hrg_mnl6: hrg 2005 p. 355f: interactions2 (nl: cat)
+Model run at                                : 2025-04-08 10:45:05.359321
+Estimation method                           : bgw
+Model diagnosis                             : Relative function convergence
+Optimisation diagnosis                      : Maximum found
+     hessian properties                     : Negative definite
+     maximum eigenvalue                     : -1.199858
+     reciprocal of condition number         : 0.000228377
+Number of individuals                       : 795
+Number of rows in database                  : 2369
+Number of modelled outcomes                 : 2369
+
+Number of cores used                        :  1 
+Model without mixing
+
+LL(start)                                   : -3300.44
+LL at equal shares, LL(0)                   : -3284.13
+LL at observed shares, LL(C)                : -4039.69
+LL(final)                                   : -3199.52
+Rho-squared vs equal shares                  :  0.0258 
+Adj.Rho-squared vs equal shares              :  0.0215 
+Rho-squared vs observed shares               :  0.208 
+Adj.Rho-squared vs observed shares           :  0.2058 
+AIC                                         :  6427.04 
+BIC                                         :  6507.83 
+
+Estimated parameters                        : 14
+Time taken (hh:mm:ss)                       :  00:00:1.6 
+     pre-estimation                         :  00:00:0.39 
+     estimation                             :  00:00:0.36 
+     post-estimation                        :  00:00:0.85 
+Iterations                                  :  8  
+
+Unconstrained optimisation.
+
+Estimates:
+              Estimate        s.e.   t.rat.(0)    Rob.s.e. Rob.t.rat.(0)
+asc_cart      -0.08707     0.07600     -1.1457     0.08821       -0.9871
+b_cost        -0.20668     0.02152     -9.6040     0.02143       -9.6451
+asc_carnt      0.42028     0.07733      5.4351     0.08346        5.0358
+asc_bus       -0.58527     0.23805     -2.4586     0.23997       -2.4389
+b_fare1        0.18216     0.30648      0.5944     0.30716        0.5930
+b_fare3       -0.78898     0.37083     -2.1276     0.37096       -2.1269
+b_time10      -1.12909     0.38609     -2.9244     0.38779       -2.9116
+b_time15      -0.77819     0.37059     -2.0999     0.37407       -2.0804
+b_fr1tim10     1.15126     0.48399      2.3787     0.49347        2.3330
+b_fr1tim15     0.90682     0.47412      1.9127     0.48561        1.8674
+b_fr3tim10     2.50858     0.52588      4.7703     0.52387        4.7885
+b_fr3tim15     2.21733     0.51154      4.3346     0.51451        4.3096
+asc_tr        -0.03988     0.09385     -0.4250     0.09732       -0.4098
+asc_bw         0.09093     0.08591      1.0583     0.09330        0.9745
+asc_lr         0.00000          NA          NA          NA            NA
+
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Model output saved to 01403_hrg_mnl/01403_hrg_mnl6_output.txt 
+Model object saved to 01403_hrg_mnl/01403_hrg_mnl6.rds 
+                      LL par
+01403_hrg_mnl01 -3220.15   6
+01403_hrg_mnl6  -3199.52  14
+Difference         20.63   8
+
+Likelihood ratio test-value:    41.26 
+Degrees of freedom:             8 
+Likelihood ratio test p-value:  1.864e-06 
+INFORMATION: The p-value from the test is returned invisibly as an output from this function. Calling the function via result=apollo_lrTest(...) will save this output in an object called result (or otherwise named object). 

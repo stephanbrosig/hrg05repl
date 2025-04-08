@@ -1,0 +1,196 @@
+Model run by Brosig using Apollo 0.3.5 on R 4.4.3 for Windows.
+Please acknowledge the use of Apollo by citing Hess & Palma (2019)
+  DOI 10.1016/j.jocm.2019.100170
+  www.ApolloChoiceModelling.com
+
+Model name                                  : 01403_hrg_mnl5
+Model description                           : 01403a_hrg_mnl5: hrg 2005 p. 352: interactions1 (lin)
+Model run at                                : 2025-04-08 10:42:54.667914
+Estimation method                           : bgw
+Model diagnosis                             : Relative function convergence
+Optimisation diagnosis                      : Maximum found
+     hessian properties                     : Negative definite
+     maximum eigenvalue                     : -41.826738
+     reciprocal of condition number         : 0.00220314
+Number of individuals                       : 795
+Number of rows in database                  : 2369
+Number of modelled outcomes                 : 2369
+
+Number of cores used                        :  1 
+Model without mixing
+
+LL(start)                                   : -4435.47
+LL at equal shares, LL(0)                   : -3284.13
+LL at observed shares, LL(C)                : -4039.69
+LL(final)                                   : -3218.03
+Rho-squared vs equal shares                  :  0.0201 
+Adj.Rho-squared vs equal shares              :  0.018 
+Rho-squared vs observed shares               :  0.2034 
+Adj.Rho-squared vs observed shares           :  0.2029 
+AIC                                         :  6450.05 
+BIC                                         :  6490.44 
+
+Estimated parameters                        : 7
+Time taken (hh:mm:ss)                       :  00:00:0.7 
+     pre-estimation                         :  00:00:0.24 
+     estimation                             :  00:00:0.14 
+     post-estimation                        :  00:00:0.32 
+Iterations                                  :  9  
+
+Unconstrained optimisation.
+
+Estimates:
+             Estimate        s.e.   t.rat.(0)    Rob.s.e. Rob.t.rat.(0)
+asc_cart     -0.08196     0.07553     -1.0852     0.08724       -0.9395
+b_cost       -0.20182     0.01917    -10.5255     0.01871      -10.7854
+asc_carnt     0.31084     0.09152      3.3966     0.10763        2.8881
+b_vehlic      0.02305     0.01108      2.0806     0.01319        1.7470
+asc_bus       0.02079     0.09925      0.2095     0.08882        0.2341
+asc_tr       -0.04165     0.09373     -0.4444     0.09726       -0.4283
+asc_bw        0.09340     0.08589      1.0874     0.09319        1.0022
+asc_lr        0.00000          NA          NA          NA            NA
+
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+
+Classical covariance matrix:
+             asc_cart      b_cost   asc_carnt    b_vehlic     asc_bus      asc_tr      asc_bw
+asc_cart     0.005704  2.9817e-04    0.003418   2.630e-06    0.004368    0.003858    0.003737
+b_cost     2.9817e-04  3.6764e-04 -4.3603e-04  -4.917e-07   2.695e-05  -3.737e-06   1.742e-05
+asc_carnt    0.003418 -4.3603e-04    0.008375 -5.5716e-04    0.004288    0.003865    0.003681
+b_vehlic    2.630e-06  -4.917e-07 -5.5716e-04  1.2271e-04   6.086e-06   5.232e-07   4.739e-06
+asc_bus      0.004368   2.695e-05    0.004288   6.086e-06    0.009850    0.004531    0.004190
+asc_tr       0.003858  -3.737e-06    0.003865   5.232e-07    0.004531    0.008785    0.003235
+asc_bw       0.003737   1.742e-05    0.003681   4.739e-06    0.004190    0.003235    0.007377
+
+Robust covariance matrix:
+             asc_cart      b_cost   asc_carnt    b_vehlic     asc_bus      asc_tr      asc_bw
+asc_cart     0.007611  4.6599e-04    0.004813  -5.809e-05    0.003691    0.004134    0.004483
+b_cost     4.6599e-04  3.5014e-04 -2.5239e-04   5.445e-06  1.6252e-04   2.023e-05  1.0965e-04
+asc_carnt    0.004813 -2.5239e-04    0.011584 -9.0810e-04    0.003098    0.003872    0.004336
+b_vehlic   -5.809e-05   5.445e-06 -9.0810e-04  1.7405e-04   1.432e-05  -2.721e-05  -4.580e-05
+asc_bus      0.003691  1.6252e-04    0.003098   1.432e-05    0.007889    0.003526    0.003945
+asc_tr       0.004134   2.023e-05    0.003872  -2.721e-05    0.003526    0.009460    0.003738
+asc_bw       0.004483  1.0965e-04    0.004336  -4.580e-05    0.003945    0.003738    0.008685
+
+Classical correlation matrix:
+             asc_cart      b_cost   asc_carnt    b_vehlic     asc_bus      asc_tr      asc_bw
+asc_cart     1.000000    0.205903      0.4945    0.003143    0.582703    0.544942    0.576071
+b_cost       0.205903    1.000000     -0.2485   -0.002315    0.014163   -0.002079    0.010576
+asc_carnt    0.494521   -0.248493      1.0000   -0.549595    0.472154    0.450537    0.468358
+b_vehlic     0.003143   -0.002315     -0.5496    1.000000    0.005536  5.0389e-04    0.004981
+asc_bus      0.582703    0.014163      0.4722    0.005536    1.000000    0.487060    0.491601
+asc_tr       0.544942   -0.002079      0.4505  5.0389e-04    0.487060    1.000000    0.401786
+asc_bw       0.576071    0.010576      0.4684    0.004981    0.491601    0.401786    1.000000
+
+Robust correlation matrix:
+             asc_cart      b_cost   asc_carnt    b_vehlic     asc_bus      asc_tr      asc_bw
+asc_cart      1.00000     0.28545      0.5125    -0.05047     0.47630     0.48725     0.55137
+b_cost        0.28545     1.00000     -0.1253     0.02206     0.09779     0.01111     0.06288
+asc_carnt     0.51253    -0.12532      1.0000    -0.63954     0.32405     0.36988     0.43231
+b_vehlic     -0.05047     0.02206     -0.6395     1.00000     0.01222    -0.02121    -0.03725
+asc_bus       0.47630     0.09779      0.3240     0.01222     1.00000     0.40811     0.47659
+asc_tr        0.48725     0.01111      0.3699    -0.02121     0.40811     1.00000     0.41240
+asc_bw        0.55137     0.06288      0.4323    -0.03725     0.47659     0.41240     1.00000
+
+Changes in parameter estimates from starting values:
+              Initial    Estimate  Difference
+asc_cart     -0.10000    -0.08196    0.018039
+b_cost       -0.20000    -0.20182   -0.001815
+asc_carnt     0.40000     0.31084   -0.089156
+b_vehlic      0.40000     0.02305   -0.376952
+asc_bus       0.10000     0.02079   -0.079205
+asc_tr        0.01000    -0.04165   -0.051653
+asc_bw       -0.04000     0.09340    0.133396
+asc_lr        0.00000     0.00000    0.000000
+
+Settings and functions used in model definition:
+
+apollo_control
+--------------
+                       Value                                                  
+modelName              "01403_hrg_mnl5"                                       
+modelDescr             "01403a_hrg_mnl5: hrg 2005 p. 352: interactions1 (lin)"
+indivID                "id"                                                   
+outputDirectory        "01403_hrg_mnl/"                                       
+panelData              "TRUE"                                                 
+debug                  "FALSE"                                                
+nCores                 "1"                                                    
+workInLogs             "FALSE"                                                
+seed                   "13"                                                   
+mixing                 "FALSE"                                                
+HB                     "FALSE"                                                
+noValidation           "FALSE"                                                
+noDiagnostics          "FALSE"                                                
+calculateLLC           "TRUE"                                                 
+analyticHessian        "FALSE"                                                
+memorySaver            "FALSE"                                                
+analyticGrad           "TRUE"                                                 
+analyticGrad_manualSet "FALSE"                                                
+overridePanel          "FALSE"                                                
+preventOverridePanel   "FALSE"                                                
+noModification         "FALSE"                                                
+
+Hessian routines attempted
+--------------------------
+numerical jacobian of LL analytical gradient
+
+Scaling used in computing Hessian
+---------------------------------
+               Value
+asc_cart  0.08196091
+b_cost    0.20181534
+asc_carnt 0.31084359
+b_vehlic  0.02304758
+asc_bus   0.02079451
+asc_tr    0.04165310
+asc_bw    0.09339574
+
+
+apollo_probabilities
+----------------------
+function(apollo_beta, apollo_inputs, functionality="estimate"){
+    
+  ### Attach inputs and detach after function exit
+  apollo_attach(apollo_beta, apollo_inputs)
+  on.exit(apollo_detach(apollo_beta, apollo_inputs))
+
+  ### Create list of probabilities P
+  P = list()
+
+  ### List of utilities: these must use the same names as in mnl_settings, order is irrelevant
+
+V <- list()                                                                                  
+V[["CART"]]  <- asc_cart   + b_cost * fuel_CART 
+V[["CARNT"]] <- asc_carnt  + b_cost * fuel_CARNT + b_vehlic * vehlic
+V[["BUS"]]   <- asc_bus    + b_cost * fare_BUS  
+V[["TR"]]    <- asc_tr     + b_cost * fare_TR   
+V[["BW"]]    <- asc_bw     + b_cost * fare_BW   
+V[["LR"]]    <- asc_lr     + b_cost * fare_LR   
+
+  
+  ### Define settings for MNL model component
+  mnl_settings = list(
+    alternatives  = c(CART=1, CARNT=2, TR=3, LR=4, BW=5, BUS=6), 
+    avail         = list(CART=avail_CART, CARNT=avail_CARNT, TR=avail_TR, BW=avail_BW, LR=avail_LR, BUS=avail_BUS), 
+    choiceVar     = choice_newn,
+    utilities     = V
+  )
+  
+  ### Compute probabilities using MNL model
+  P[["model"]] = apollo_mnl(mnl_settings, functionality)
+  
+  ### Take product across observation for same individual
+  P = apollo_panelProd(P, apollo_inputs, functionality)
+  
+  ### Prepare and return outputs of function
+  P = apollo_prepareProb(P, apollo_inputs, functionality)
+  return(P)
+}

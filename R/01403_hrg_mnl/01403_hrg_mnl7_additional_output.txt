@@ -1,0 +1,9 @@
+                      LL par
+01403_hrg_mnl01 -3220.15   6
+01403_hrg_mnl7  -3214.72   7
+Difference          5.43   1
+
+Likelihood ratio test-value:    10.86 
+Degrees of freedom:             1 
+Likelihood ratio test p-value:  0.0009826 
+INFORMATION: The p-value from the test is returned invisibly as an output from this function. Calling the function via result=apollo_lrTest(...) will save this output in an object called result (or otherwise named object). 

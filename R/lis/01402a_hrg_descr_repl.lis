@@ -1,0 +1,40 @@
+Codefile:01402a_hrg_descr_repl.r 
+[1] 9476   45
+
+Data successfully turned from long to wide format.
+
+Long data had 6 unique alternatives
+Alternative names were: 1 2 4 6 5 3
+
+The following notation was used for the wide format:
+For alternative j, the following naming convention has been adopted:
+    Attributes:    time_j timevar_j toll_j tollpred_j fuel_j parking_j freq_j fare_j
+    Availability:  avail_j
+The choice variable is included in column choice_new.
+                time   timevar   toll   tollpred   fuel   parking   freq   fare Availability choice_new
+Alternative 1 time_1 timevar_1 toll_1 tollpred_1 fuel_1 parking_1 freq_1 fare_1      avail_1          1
+Alternative 2 time_2 timevar_2 toll_2 tollpred_2 fuel_2 parking_2 freq_2 fare_2      avail_2          2
+Alternative 4 time_4 timevar_4 toll_4 tollpred_4 fuel_4 parking_4 freq_4 fare_4      avail_4          3
+Alternative 6 time_6 timevar_6 toll_6 tollpred_6 fuel_6 parking_6 freq_6 fare_6      avail_6          4
+Alternative 5 time_5 timevar_5 toll_5 tollpred_5 fuel_5 parking_5 freq_5 fare_5      avail_5          5
+Alternative 3 time_3 timevar_3 toll_3 tollpred_3 fuel_3 parking_3 freq_3 fare_3      avail_3          6
+
+
+Overview of choice data
+              Available Chosen
+Alternative 1      2369    600
+Alternative 2      2369    658
+Alternative 4      1089    243
+Alternative 6      1330    305
+Alternative 5      1280    319
+Alternative 3      1039    244
+ [1] "id"         "city"       "sprp"       "spexp"      "altisprp"   "spchoice"   "cn"         "spmiss"     "sprpmiss"  
+[10] "triptime"   "deptime"    "disdwcbd"   "splength"   "start24"    "acctime"    "eggtime"    "hweight"    "hldincom"  
+[19] "hldsize"    "nworkers"   "wkremply"   "wkroccup"   "perage"     "drivlic"    "pincome"    "persex"     "pereduc"   
+[28] "acceggt"    "can"        "syd"        "mel"        "brs"        "adl"        "rpmiss"     "rpda"       "time_1"    
+[37] "timevar_1"  "toll_1"     "tollpred_1" "fuel_1"     "parking_1"  "freq_1"     "fare_1"     "avail_1"    "time_2"    
+[46] "timevar_2"  "toll_2"     "tollpred_2" "fuel_2"     "parking_2"  "freq_2"     "fare_2"     "avail_2"    "time_4"    
+[55] "timevar_4"  "toll_4"     "tollpred_4" "fuel_4"     "parking_4"  "freq_4"     "fare_4"     "avail_4"    "time_6"    
+[64] "timevar_6"  "toll_6"     "tollpred_6" "fuel_6"     "parking_6"  "freq_6"     "fare_6"     "avail_6"    "time_5"    
+[73] "timevar_5"  "toll_5"     "tollpred_5" "fuel_5"     "parking_5"  "freq_5"     "fare_5"     "avail_5"    "time_3"    
+[82] "timevar_3"  "toll_3"     "tollpred_3" "fuel_3"     "parking_3"  "freq_3"     "fare_3"     "avail_3"    "choice_new"
