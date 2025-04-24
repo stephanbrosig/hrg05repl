@@ -1,0 +1,683 @@
+Codefile:hrg02_descr.r 
+Apollo ignition sequence completed
+All checks on apollo_control completed.
+All checks on database completed.
+
+
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+Preparing user-defined functions.
+
+Testing likelihood function...
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Pre-processing likelihood function...
+
+Testing influence of parameters
+Starting main estimation
+
+BGW using analytic model derivatives supplied by caller...
+
+
+Iterates will be written to: 
+ hrg03_mnl/hrg03_mnl01_iterations.csv
+    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
+     0     1 3.223190940e+03
+     1     3 3.220153480e+03 9.424e-04 9.387e-04 7.74e-02   G   0.00e+00
+     2     4 3.220149706e+03 1.172e-06 1.116e-06 3.13e-03   G   0.00e+00
+     3     5 3.220149679e+03 8.620e-09 8.021e-09 2.75e-04   G   0.00e+00
+     4     6 3.220149678e+03 8.790e-11 8.873e-11 3.36e-05   S   0.00e+00
+
+***** Relative function convergence *****
+
+Estimated parameters with approximate standard errors from BHHH matrix:
+             Estimate     BHHH se BHH t-ratio (0)
+asc_cart     -0.08253     0.07510         -1.0989
+b_cost       -0.20181     0.01882        -10.7223
+asc_carnt     0.41384     0.07836          5.2812
+asc_bus       0.01966     0.09948          0.1976
+asc_tr       -0.04175     0.09429         -0.4427
+asc_bw        0.09251     0.08725          1.0603
+asc_lr        0.00000          NA              NA
+
+Final LL: -3220.1497
+
+Calculating log-likelihood at equal shares (LL(0)) for applicable models...
+Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
+Calculating LL of each model component...
+Calculating other model fit measures
+Computing covariance matrix using numerical jacobian of analytical gradient.
+ 0%....25%....50%....75%.100%
+Negative definite Hessian with maximum eigenvalue: -42.59431
+Computing score matrix...
+
+Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
+
+Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
+
+Old result file "hrg03_mnl/hrg03_mnl01_output.txt" removed/overwritten
+Old result file "hrg03_mnl/hrg03_mnl01_model.rds" removed/overwritten
+Model output saved to hrg03_mnl/hrg03_mnl01_output.txt 
+Model object saved to hrg03_mnl/hrg03_mnl01.rds 
+P)  3: tr+lr    10       0   0          0     0       0     5     3
+17  1001 CS2   <30          1 cart        1 car with toll (SP)    Bus - Train (SP)         1: b+tr     12       2   2          1     3       0     0     0
+18  1001 CS2   <30          2 carnt       0 car with toll (SP)    Bus - Train (SP)         1: b+tr     20       6   0          0     4      20     0     0
+19  1001 CS2   <30          3 bus         0 car with toll (SP)    Bus - Train (SP)         1: b+tr     15       0   0          0     0       0    15     5
+20  1001 CS2   <30          4 train       0 car with toll (SP)    Bus - Train (SP)         1: b+tr     20       0   0          0     0       0     5     3
+21  1001 CS3   <30          1 cart        0 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    10       1   1.5        0     2      20     0     0
+22  1001 CS3   <30          2 carnt       0 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    15       4   0          0     3      10     0     0
+23  1001 CS3   <30          5 BW          0 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    10       0   0          0     0       0    15     5
+24  1001 CS3   <30          6 LR          1 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    20       0   0          0     0       0    25     1
+# ℹ 14,432 more rows
+# ℹ Use `print(n = ...)` to see more rows
+
+Data successfully turned from long to wide format.
+
+Long data had 6 unique alternatives
+Alternative names were: CART CARNT TR LR BW BUS
+
+The following notation was used for the wide format:
+For alternative j, the following naming convention has been adopted:
+    Attributes:    time_j timevar_j toll_j tollpred_j fuel_j parking_j freq_j fare_j acctime_j eggtime_j
+    Availability:  avail_j
+The choice variable is included in column choice_new.
+                        time       timevar       toll       tollpred       fuel       parking       freq       fare       acctime       eggtime Availability choice_new
+Alternative CART   time_CART  timevar_CART  toll_CART  tollpred_CART  fuel_CART  parking_CART  freq_CART  fare_CART  acctime_CART  eggtime_CART   avail_CART          1
+Alternative CARNT time_CARNT timevar_CARNT toll_CARNT tollpred_CARNT fuel_CARNT parking_CARNT freq_CARNT fare_CARNT acctime_CARNT eggtime_CARNT  avail_CARNT          2
+Alternative TR       time_TR    timevar_TR    toll_TR    tollpred_TR    fuel_TR    parking_TR    freq_TR    fare_TR    acctime_TR    eggtime_TR     avail_TR          3
+Alternative LR       time_LR    timevar_LR    toll_LR    tollpred_LR    fuel_LR    parking_LR    freq_LR    fare_LR    acctime_LR    eggtime_LR     avail_LR          4
+Alternative BW       time_BW    timevar_BW    toll_BW    tollpred_BW    fuel_BW    parking_BW    freq_BW    fare_BW    acctime_BW    eggtime_BW     avail_BW          5
+Alternative BUS     time_BUS   timevar_BUS   toll_BUS   tollpred_BUS   fuel_BUS   parking_BUS   freq_BUS   fare_BUS   acctime_BUS   eggtime_BUS    avail_BUS          6
+
+
+Overview of choice data
+                  Available Chosen
+Alternative CART       4188   1308
+Alternative TR         1995    511
+Alternative CARNT      3956    978
+Alternative LR         2122    556
+Alternative BW         2064    597
+Alternative BUS        1861    529
+
+
+table(database(splength))
+
+   2    3    4 
+2369  717  528 
+
+
+OVERALL FREQUENCY OF ALTERNATIVE INCLUSION IN CHOICE CARDS (aside from CART and CARNT 
+which appear in each choice situation)table(database$cn)
+
+
+BEFORE FILTERING: codebookentries('cn',database)
+
+cn[] (Length:3614, # of nonmissing elements:3614)
+  Frequency PctShare LevelCode                                LevelText
+1       823       23         1                         Bus - Train (SP)
+2       771       21         2                        Bus - Busway (SP)
+3       818       23         3                  Train - Light Rail (SP)
+4      1202       33         4                 Busway - Light Rail (SP)
+5         0        0         5 Walk and other alternative included (RP)
+
+
+codebookentries('cnf',database)
+
+cnf[] (Length:3614, # of nonmissing elements:3614)
+  Frequency PctShare LevelCode LevelText
+1       823       23         1   1: b+tr
+2       771       21         2   2: b+bw
+3       818       23         3  3: tr+lr
+4      1202       33         4  4: bw+lr
+
+
+codebookentries('cn_own',database)
+
+cn_own[] (Length:3614, # of nonmissing elements:3614)
+  Frequency PctShare LevelCode LevelText
+1       823       23         1   1: b+tr
+2         0        0         2   2: b+lr
+3         0        0         3  3: tr+bw
+4      1202       33         4  4: bw+lr
+5       771       21         5   5: b+bw
+6       818       23         6  6: tr+lr
+
+choice_newf[] (Length:3614, # of nonmissing elements:3614)
+  Frequency PctShare LevelCode LevelText
+1       803       22         1    1 CART
+2       842       23         2   2 CARNT
+3       430       12         3      3 TR
+4       529       15         4      4 LR
+5       577       16         5      5 BW
+6       433       12         6     6 BUS
+
+ FROM NOW ON FILTERED DATA (sprp == 'SP' & splength == 2) [with 2:<30min, 3:30-45min, 4:>45min]
+# A tibble: 20 × 25
+      id spexp cn       cnf   cn_own choice_new[,1] choice_newf avail_CART fuel_CART fare_CART avail_CARNT fuel_CARNT fare_CARNT avail_BUS fuel_BUS fare_BUS avail_TR fuel_TR fare_TR avail_BW
+   <int> <dbl> <fct>    <fct> <fct>           <dbl> <fct>            <dbl>     <dbl>     <dbl>       <dbl>      <dbl>      <dbl>     <dbl>    <dbl>    <dbl>    <dbl>   <dbl>   <dbl>    <dbl>
+ 1  1000     1 Train -… 3: t… 6: tr…              2 2 CARNT              1         1         0           1          5          0         0        0        0        1       0       1        0
+ 2  1000     2 Busway … 4: b… 4: bw…              4 4 LR                 1         2         0           1          3          0         0        0        0        0       0       0        1
+ 3  1000     3 Bus - T… 1: b… 1: b+…              3 3 TR                 1         3         0           1          4          0         1        0        5        1       0       3        0
+ 4  1001     1 Train -… 3: t… 6: tr…              2 2 CARNT              1         1         0           1          5          0         0        0        0        1       0       1        0
+ 5  1001     2 Bus - T… 1: b… 1: b+…              1 1 CART               1         3         0           1          4          0         1        0        5        1       0       3        0
+ 6  1001     3 Busway … 4: b… 4: bw…              4 4 LR                 1         2         0           1          3          0         0        0        0        0       0       0        1
+ 7  1002     1 Train -… 3: t… 6: tr…              2 2 CARNT              1         1         0           1          5          0         0        0        0        1       0       3        0
+ 8  1002     2 Busway … 4: b… 4: bw…              1 1 CART               1         2         0           1          3          0         0        0        0        0       0       0        1
+ 9  1002     3 Bus - T… 1: b… 1: b+…              6 6 BUS                1         3         0           1          4          0         1        0        1        1       0       5        0
+10  1004     1 Bus - B… 2: b… 5: b+…              2 2 CARNT              1         3         0           1          4          0         1        0        3        0       0       0        1
+11  1004     2 Busway … 4: b… 4: bw…              1 1 CART               1         2         0           1          3          0         0        0        0        0       0       0        1
+12  1004     3 Bus - B… 2: b… 5: b+…              1 1 CART               1         1         0           1          5          0         1        0        1        0       0       0        1
+13  1005     1 Train -… 3: t… 6: tr…              2 2 CARNT              1         1         0           1          5          0         0        0        0        1       0       3        0
+14  1005     2 Busway … 4: b… 4: bw…              1 1 CART               1         2         0           1          3          0         0        0        0        0       0       0        1
+15  1005     3 Bus - T… 1: b… 1: b+…              1 1 CART               1         3         0           1          4          0         1        0        1        1       0       5        0
+16  1006     1 Busway … 4: b… 4: bw…              1 1 CART               1         1         0           1          4          0         0        0        0        0       0       0        1
+17  1006     2 Train -… 3: t… 6: tr…              3 3 TR                 1         3         0           1          3          0         0        0        0        1       0       5        0
+18  1006     3 Bus - T… 1: b… 1: b+…              3 3 TR                 1         2         0           1          5          0         1        0        5        1       0       1        0
+19  1008     1 Bus - B… 2: b… 5: b+…              5 5 BW                 1         2         0           1          5          0         1        0        1        0       0       0        1
+20  1008     2 Busway … 4: b… 4: bw…              5 5 BW                 1         1         0           1          4          0         0        0        0        0       0       0        1
+# ℹ 5 more variables: fuel_BW <dbl>, fare_BW <dbl>, avail_LR <dbl>, fuel_LR <dbl>, fare_LR <dbl>
+
+Testing for multicollinearity using wide format (all alternatives in same row for each choice situation)   
+ as suggested in HRG2005 8.5.1 (p.245) and 9.5.2 (p. 295)
+
+
+SPLENGTH-specific FREQUENCY OF ALTERNATIVE INCLUSION IN CHOICE CARDSn)
+
+cn[] (Length:2369, # of nonmissing elements:2369)
+  Frequency PctShare LevelCode                                LevelText
+1       548       23         1                         Bus - Train (SP)
+2       491       21         2                        Bus - Busway (SP)
+3       541       23         3                  Train - Light Rail (SP)
+4       789       33         4                 Busway - Light Rail (SP)
+5         0        0         5 Walk and other alternative included (RP)
+
+
+AUXILIARY REGRESSIONS FOR ALTERNATIVE CART 
+
+Ri-STATISTICS AND F-TESTS
+
+       Variable Ri_Statistic F_CritVal Multicoll
+1     time_CART    1.5518370  2.375692         .
+2  timevar_CART    1.7340526  2.375692         .
+3     toll_CART    4.8352832  2.375692       Yes
+4 tollpred_CART    5.7231418  2.375692       Yes
+5     fuel_CART    0.5342818  2.375692         .
+6  parking_CART    2.0742838  2.375692         .
+
+
+AUXILIARY REGRESSIONS FOR ALTERNATIVE CARNT 
+
+Ri-STATISTICS AND F-TESTS
+
+       Variable Ri_Statistic F_CritVal Multicoll
+1    time_CARNT    0.8298137  2.999529         .
+2 timevar_CARNT    0.4103225  2.999529         .
+3    fuel_CARNT    2.0690869  2.999529         .
+4 parking_CARNT    2.1006176  2.999529         .
+
+
+AUXILIARY REGRESSIONS FOR ALTERNATIVE BUS 
+
+Ri-STATISTICS AND F-TESTS
+
+     Variable Ri_Statistic F_CritVal Multicoll
+1    time_BUS     2479.519  2.608666       Yes
+2 acctime_BUS     1096.794  2.608666       Yes
+3 eggtime_BUS     1027.491  2.608666       Yes
+4    freq_BUS     1224.308  2.608666       Yes
+5    fare_BUS     1210.281  2.608666       Yes
+
+
+AUXILIARY REGRESSIONS FOR ALTERNATIVE TR 
+
+Ri-STATISTICS AND F-TESTS
+
+    Variable Ri_Statistic F_CritVal Multicoll
+1    time_TR    2552.4438  2.608666       Yes
+2 acctime_TR     757.6115  2.608666       Yes
+3 eggtime_TR     902.5391  2.608666       Yes
+4    freq_TR    1359.4591  2.608666       Yes
+5    fare_TR    1234.5873  2.608666       Yes
+
+
+AUXILIARY REGRESSIONS FOR ALTERNATIVE BW 
+
+Ri-STATISTICS AND F-TESTS
+
+    Variable Ri_Statistic F_CritVal Multicoll
+1    time_BW    2139.1762  2.608666       Yes
+2 acctime_BW     748.5318  2.608666       Yes
+3 eggtime_BW     747.5489  2.608666       Yes
+4    freq_BW     916.5673  2.608666       Yes
+5    fare_BW     976.4674  2.608666       Yes
+
+
+AUXILIARY REGRESSIONS FOR ALTERNATIVE LR 
+
+Ri-STATISTICS AND F-TESTS
+
+    Variable Ri_Statistic F_CritVal Multicoll
+1    time_LR    1934.7243  2.608666       Yes
+2 acctime_LR     824.9957  2.608666       Yes
+3 eggtime_LR     853.4181  2.608666       Yes
+4    freq_LR     914.9492  2.608666       Yes
+5    fare_LR    1027.2643  2.608666       Yes
+
+
+PEARSON CORRELATION MATRIX for splength = 2 (see also correlation plot 
+         hrg02_descr_corrplotX.wmf w X = 2,3,4 acc to splength, also in MSWord file ) 
+
+              time_CART timevar_CART toll_CART tollpred_CART fuel_CART parking_CART time_CARNT timevar_CARNT fuel_CARNT parking_CARNT time_TR freq_TR fare_TR acctime_TR eggtime_TR time_LR
+time_CART         1.000       -0.013     0.017        -0.031     0.016       -0.031     -0.008        -0.028      0.003         0.018  -0.007   0.001   0.073     -0.020     -0.059  -0.026
+timevar_CART     -0.013        1.000    -0.007        -0.033    -0.015        0.037      0.039        -0.007     -0.006         0.023  -0.003   0.005  -0.092      0.055     -0.008  -0.009
+toll_CART         0.017       -0.007     1.000        -0.083    -0.010        0.029     -0.038        -0.030      0.028         0.018   0.030   0.022   0.034     -0.035      0.040  -0.008
+tollpred_CART    -0.031       -0.033    -0.083         1.000     0.019       -0.020     -0.027         0.036     -0.016        -0.002  -0.005   0.000   0.027      0.093      0.028   0.003
+fuel_CART         0.016       -0.015    -0.010         0.019     1.000       -0.002     -0.001        -0.008     -0.028        -0.017  -0.009   0.010   0.021     -0.031      0.028   0.044
+parking_CART     -0.031        0.037     0.029        -0.020    -0.002        1.000      0.037        -0.036      0.019        -0.004   0.039  -0.074   0.029      0.043      0.099   0.005
+time_CARNT       -0.008        0.039    -0.038        -0.027    -0.001        0.037      1.000        -0.008      0.021         0.015  -0.068  -0.032  -0.038      0.046     -0.027  -0.125
+timevar_CARNT    -0.028       -0.007    -0.030         0.036    -0.008       -0.036     -0.008         1.000     -0.006        -0.016   0.019   0.025  -0.023     -0.026      0.025   0.023
+fuel_CARNT        0.003       -0.006     0.028        -0.016    -0.028        0.019      0.021        -0.006      1.000         0.036   0.125   0.009   0.005      0.034      0.007  -0.085
+parking_CARNT     0.018        0.023     0.018        -0.002    -0.017       -0.004      0.015        -0.016      0.036         1.000   0.008   0.030   0.208      0.037     -0.024  -0.016
+time_TR          -0.007       -0.003     0.030        -0.005    -0.009        0.039     -0.068         0.019      0.125         0.008   1.000   0.775   0.767      0.681      0.705  -0.078
+freq_TR           0.001        0.005     0.022         0.000     0.010       -0.074     -0.032         0.025      0.009         0.030   0.775   1.000   0.670      0.587      0.648  -0.087
+fare_TR           0.073       -0.092     0.034         0.027     0.021        0.029     -0.038        -0.023      0.005         0.208   0.767   0.670   1.000      0.591      0.596  -0.078
+acctime_TR       -0.020        0.055    -0.035         0.093    -0.031        0.043      0.046        -0.026      0.034         0.037   0.681   0.587   0.591      1.000      0.565  -0.113
+eggtime_TR       -0.059       -0.008     0.040         0.028     0.028        0.099     -0.027         0.025      0.007        -0.024   0.705   0.648   0.596      0.565      1.000  -0.116
+time_LR          -0.026       -0.009    -0.008         0.003     0.044        0.005     -0.125         0.023     -0.085        -0.016  -0.078  -0.087  -0.078     -0.113     -0.116   1.000
+freq_LR          -0.028        0.026    -0.025         0.055    -0.049        0.027      0.021         0.116     -0.003         0.036  -0.062  -0.057  -0.044     -0.027     -0.087   0.713
+fare_LR          -0.078       -0.229     0.009         0.012     0.003        0.005     -0.034         0.027     -0.026        -0.099  -0.093  -0.086   0.011     -0.122     -0.103   0.733
+acctime_LR       -0.021        0.010    -0.015         0.027    -0.017        0.025      0.008         0.001     -0.052        -0.015  -0.112  -0.136  -0.093     -0.066     -0.044   0.662
+eggtime_LR        0.062        0.038     0.002         0.002     0.001        0.033      0.006         0.007     -0.047        -0.165  -0.101  -0.086  -0.114     -0.078     -0.064   0.659
+time_BW           0.006       -0.012    -0.025        -0.020     0.026       -0.055      0.062        -0.017     -0.110         0.003  -0.871  -0.751  -0.746     -0.691     -0.694   0.100
+freq_BW           0.008       -0.029    -0.016         0.005     0.009        0.058      0.010        -0.019      0.011         0.003  -0.727  -0.627  -0.622     -0.577     -0.579   0.094
+fare_BW          -0.079        0.078    -0.020        -0.028     0.023       -0.047      0.008        -0.012      0.027        -0.178  -0.731  -0.631  -0.626     -0.580     -0.583   0.099
+acctime_BW       -0.015       -0.034     0.006        -0.102    -0.005       -0.035      0.019         0.013     -0.019         0.015  -0.670  -0.578  -0.574     -0.531     -0.534   0.096
+eggtime_BW        0.050        0.008    -0.007        -0.045    -0.011       -0.103      0.017        -0.059      0.025         0.046  -0.675  -0.582  -0.578     -0.535     -0.538   0.075
+time_BUS          0.010       -0.018     0.000        -0.011    -0.030       -0.007      0.130        -0.027      0.083         0.012   0.090   0.090   0.076      0.101      0.111  -0.870
+freq_BUS          0.021        0.015     0.013        -0.022    -0.026        0.000     -0.009        -0.093      0.040         0.026   0.073   0.065   0.047      0.114      0.083  -0.744
+fare_BUS          0.068        0.242     0.004        -0.013     0.018       -0.008     -0.012        -0.023      0.021         0.114   0.093   0.078   0.029      0.094      0.100  -0.749
+acctime_BUS       0.034       -0.006     0.031         0.010     0.013       -0.016      0.000         0.000      0.009         0.014   0.110   0.164   0.101      0.142      0.191  -0.707
+eggtime_BUS      -0.028       -0.017    -0.004         0.018     0.025       -0.015     -0.012         0.006      0.007         0.165   0.118   0.103   0.158      0.123      0.150  -0.706
+              freq_LR fare_LR acctime_LR eggtime_LR time_BW freq_BW fare_BW acctime_BW eggtime_BW time_BUS freq_BUS fare_BUS acctime_BUS eggtime_BUS
+time_CART      -0.028  -0.078     -0.021      0.062   0.006   0.008  -0.079     -0.015      0.050    0.010    0.021    0.068       0.034      -0.028
+timevar_CART    0.026  -0.229      0.010      0.038  -0.012  -0.029   0.078     -0.034      0.008   -0.018    0.015    0.242      -0.006      -0.017
+toll_CART      -0.025   0.009     -0.015      0.002  -0.025  -0.016  -0.020      0.006     -0.007    0.000    0.013    0.004       0.031      -0.004
+tollpred_CART   0.055   0.012      0.027      0.002  -0.020   0.005  -0.028     -0.102     -0.045   -0.011   -0.022   -0.013       0.010       0.018
+fuel_CART      -0.049   0.003     -0.017      0.001   0.026   0.009   0.023     -0.005     -0.011   -0.030   -0.026    0.018       0.013       0.025
+parking_CART    0.027   0.005      0.025      0.033  -0.055   0.058  -0.047     -0.035     -0.103   -0.007    0.000   -0.008      -0.016      -0.015
+time_CARNT      0.021  -0.034      0.008      0.006   0.062   0.010   0.008      0.019      0.017    0.130   -0.009   -0.012       0.000      -0.012
+timevar_CARNT   0.116   0.027      0.001      0.007  -0.017  -0.019  -0.012      0.013     -0.059   -0.027   -0.093   -0.023       0.000       0.006
+fuel_CARNT     -0.003  -0.026     -0.052     -0.047  -0.110   0.011   0.027     -0.019      0.025    0.083    0.040    0.021       0.009       0.007
+parking_CARNT   0.036  -0.099     -0.015     -0.165   0.003   0.003  -0.178      0.015      0.046    0.012    0.026    0.114       0.014       0.165
+time_TR        -0.062  -0.093     -0.112     -0.101  -0.871  -0.727  -0.731     -0.670     -0.675    0.090    0.073    0.093       0.110       0.118
+freq_TR        -0.057  -0.086     -0.136     -0.086  -0.751  -0.627  -0.631     -0.578     -0.582    0.090    0.065    0.078       0.164       0.103
+fare_TR        -0.044   0.011     -0.093     -0.114  -0.746  -0.622  -0.626     -0.574     -0.578    0.076    0.047    0.029       0.101       0.158
+acctime_TR     -0.027  -0.122     -0.066     -0.078  -0.691  -0.577  -0.580     -0.531     -0.535    0.101    0.114    0.094       0.142       0.123
+eggtime_TR     -0.087  -0.103     -0.044     -0.064  -0.694  -0.579  -0.583     -0.534     -0.538    0.111    0.083    0.100       0.191       0.150
+time_LR         0.713   0.733      0.662      0.659   0.100   0.094   0.099      0.096      0.075   -0.870   -0.744   -0.749      -0.707      -0.706
+freq_LR         1.000   0.599      0.566      0.554   0.071   0.066   0.063      0.067      0.053   -0.731   -0.625   -0.629      -0.594      -0.593
+fare_LR         0.599   1.000      0.538      0.591   0.093   0.084   0.084      0.072      0.066   -0.726   -0.621   -0.625      -0.590      -0.589
+acctime_LR      0.566   0.538      1.000      0.627   0.107   0.092   0.101      0.145      0.107   -0.667   -0.570   -0.574      -0.542      -0.541
+eggtime_LR      0.554   0.591      0.627      1.000   0.096   0.091   0.085      0.128      0.110   -0.671   -0.574   -0.577      -0.545      -0.544
+time_BW         0.071   0.093      0.107      0.096   1.000   0.718   0.726      0.670      0.670   -0.121   -0.080   -0.100      -0.104      -0.103
+freq_BW         0.066   0.084      0.092      0.091   0.718   1.000   0.609      0.545      0.506   -0.102   -0.073   -0.097      -0.110      -0.093
+fare_BW         0.063   0.084      0.101      0.085   0.726   0.609   1.000      0.538      0.560   -0.107   -0.078   -0.138      -0.098      -0.105
+acctime_BW      0.067   0.072      0.145      0.128   0.670   0.545   0.538      1.000      0.577   -0.098   -0.128   -0.085      -0.067      -0.058
+eggtime_BW      0.053   0.066      0.107      0.110   0.670   0.506   0.560      0.577      1.000   -0.067   -0.023   -0.047      -0.129      -0.049
+time_BUS       -0.731  -0.726     -0.667     -0.671  -0.121  -0.102  -0.107     -0.098     -0.067    1.000    0.762    0.757       0.719       0.709
+freq_BUS       -0.625  -0.621     -0.570     -0.574  -0.080  -0.073  -0.078     -0.128     -0.023    0.762    1.000    0.673       0.592       0.606
+fare_BUS       -0.629  -0.625     -0.574     -0.577  -0.100  -0.097  -0.138     -0.085     -0.047    0.757    0.673    1.000       0.623       0.585
+acctime_BUS    -0.594  -0.590     -0.542     -0.545  -0.104  -0.110  -0.098     -0.067     -0.129    0.719    0.592    0.623       1.000       0.676
+eggtime_BUS    -0.593  -0.589     -0.541     -0.544  -0.103  -0.093  -0.105     -0.058     -0.049    0.709    0.606    0.585       0.676       1.000
+null device 
+          1 
+Apollo ignition sequence completed
+All checks on apollo_control completed.
+All checks on database completed.
+
+
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+Preparing user-defined functions.
+
+Testing likelihood function...
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Pre-processing likelihood function...
+
+Testing influence of parameters
+Starting main estimation
+
+BGW using analytic model derivatives supplied by caller...
+
+
+Iterates will be written to: 
+ hrg03_mnl/hrg03_mnl02_iterations.csv
+    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
+     0     1 3.306508159e+03
+     1     4 3.277127316e+03 8.886e-03 8.686e-03 3.77e-01   G   0.00e+00
+     2     5 3.277011551e+03 3.532e-05 3.539e-05 5.99e-02   G   0.00e+00
+     3     6 3.277011542e+03 2.890e-09 2.900e-09 4.80e-04   G   0.00e+00
+     4     7 3.277011542e+03 1.542e-13 1.424e-13 3.75e-06   G   0.00e+00
+
+***** Relative function convergence *****
+
+Estimated parameters with approximate standard errors from BHHH matrix:
+             Estimate     BHHH se BHH t-ratio (0)
+asc_cart      0.10014     0.07341          1.3641
+asc_carnt     0.19242     0.07221          2.6648
+asc_bus       0.02563     0.09811          0.2612
+asc_tr       -0.04433     0.09265         -0.4784
+asc_bw        0.09942     0.08502          1.1693
+asc_lr        0.00000          NA              NA
+
+Final LL: -3277.0115
+
+Calculating log-likelihood at equal shares (LL(0)) for applicable models...
+Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
+Calculating LL of each model component...
+Calculating other model fit measures
+Computing covariance matrix using numerical jacobian of analytical gradient.
+ 0%....25%....50%...100%
+Negative definite Hessian with maximum eigenvalue: -43.467489
+Computing score matrix...
+
+Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
+
+Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
+Apollo ignition sequence completed
+All checks on apollo_control completed.
+All checks on database completed.
+
+
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+Preparing user-defined functions.
+
+Testing likelihood function...
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Pre-processing likelihood function...
+
+Testing influence of parameters
+Starting main estimation
+
+BGW using analytic model derivatives supplied by caller...
+
+
+Iterates will be written to: 
+ hrg03_mnl/hrg03_mnl3_iterations.csv
+    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
+     0     1 4.452992283e+03
+     1     4 3.725531642e+03 1.634e-01 1.228e-01 1.02e-01   G   8.01e-01
+     2     5 3.278506246e+03 1.200e-01 9.138e-02 3.76e-01   G   0.00e+00
+     3     6 3.214837372e+03 1.942e-02 2.092e-02 1.00e+00   S   0.00e+00
+     4     7 3.214245682e+03 1.840e-04 1.810e-04 1.10e-01   S   0.00e+00
+     5     8 3.214240591e+03 1.584e-06 1.534e-06 6.96e-03   S   0.00e+00
+     6     9 3.214240549e+03 1.320e-08 1.317e-08 9.65e-04   S   0.00e+00
+     7    10 3.214240549e+03 1.568e-11 1.603e-11 1.26e-05   S   0.00e+00
+
+***** Relative function convergence *****
+
+Estimated parameters with approximate standard errors from BHHH matrix:
+             Estimate     BHHH se BHH t-ratio (0)
+asc_cart     -0.43353     0.17425         -2.4881
+b_cart       -0.09766     0.05753         -1.6976
+asc_carnt    -0.16668     0.26164         -0.6371
+b_carnt      -0.09244     0.05686         -1.6257
+asc_bus      -0.18886     0.19780         -0.9548
+b_bus        -0.17878     0.04784         -3.7370
+asc_tr       -0.15245     0.18358         -0.8304
+b_tr         -0.21490     0.04443         -4.8365
+asc_bw        0.11530     0.17735          0.6501
+b_bw         -0.26643     0.04141         -6.4332
+asc_lr        0.00000          NA              NA
+b_lr         -0.25775     0.04186         -6.1576
+
+Final LL: -3214.2405
+
+Calculating log-likelihood at equal shares (LL(0)) for applicable models...
+Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
+Calculating LL of each model component...
+Calculating other model fit measures
+Computing covariance matrix using numerical jacobian of analytical gradient.
+ 0%....25%....50%....75%..100%
+Negative definite Hessian with maximum eigenvalue: -9.208252
+Computing score matrix...
+
+Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
+
+Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
+Apollo ignition sequence completed
+All checks on apollo_control completed.
+All checks on database completed.
+
+
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+Preparing user-defined functions.
+
+Testing likelihood function...
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Pre-processing likelihood function...
+
+Testing influence of parameters
+Starting main estimation
+
+BGW using analytic model derivatives supplied by caller...
+
+
+Iterates will be written to: 
+ hrg03_mnl/hrg03_mnl4_iterations.csv
+    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
+     0     1 3.264382464e+03
+     1     3 3.245680416e+03 5.729e-03 5.916e-03 5.43e-02   G   2.36e+00
+     2     4 3.227185849e+03 5.698e-03 6.052e-03 1.44e-01   G   3.87e-01
+     3     5 3.218049630e+03 2.831e-03 2.804e-03 3.12e-01   S   0.00e+00
+     4     6 3.217960633e+03 2.766e-05 2.859e-05 2.12e-02   S   0.00e+00
+     5     7 3.217960441e+03 5.974e-08 6.299e-08 7.27e-04   G   0.00e+00
+     6     8 3.217960439e+03 4.143e-10 4.055e-10 5.97e-05   S   0.00e+00
+     7     9 3.217960439e+03 1.587e-12 1.516e-12 3.22e-06   S   0.00e+00
+
+***** Relative function convergence *****
+
+Estimated parameters with approximate standard errors from BHHH matrix:
+              Estimate     BHHH se BHH t-ratio (0)
+asc_cart      -0.06486     0.07561         -0.8578
+b_cost        -0.18203     0.02125         -8.5663
+asc_carnt      0.39187     0.07938          4.9366
+asc_bus        0.02057     0.09969          0.2063
+asc_tr        -0.04100     0.09423         -0.4351
+asc_bw        -0.95673     0.15513         -6.1672
+b_fare_bw1     1.05038     0.16753          6.2699
+b_fare_bw3     0.38560     0.17771          2.1698
+b_fare_bw5     0.00000          NA              NA
+asc_lr         0.00000          NA              NA
+
+Final LL: -3217.9604
+
+Calculating log-likelihood at equal shares (LL(0)) for applicable models...
+Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
+Calculating LL of each model component...
+Calculating other model fit measures
+Computing covariance matrix using numerical jacobian of analytical gradient.
+ 0%....25%....50%....75%.100%
+Negative definite Hessian with maximum eigenvalue: -15.700759
+Computing score matrix...
+
+Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
+
+Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
+Apollo ignition sequence completed
+All checks on apollo_control completed.
+WARNING: Your database contains some entries that are NA. This may well be intentional, but be advised that if these entries are used in your model, the behaviour may be unexpected. 
+WARNING: Your database contains variable(s) "drivlic" codified as factors. Apollo does not support factors, and using them inside apollo_probabilities may lead to NA values in the loglikelihood. If you want to use these
+  variables, we recommend manually transforming them into numeric variables.
+All checks on database completed.
+
+
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+Preparing user-defined functions.
+
+Testing likelihood function...
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Pre-processing likelihood function...
+
+Testing influence of parameters
+Starting main estimation
+
+BGW using analytic model derivatives supplied by caller...
+
+
+Iterates will be written to: 
+ hrg03_mnl/hrg03_mnl5_iterations.csv
+    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
+     0     1 4.435471591e+03
+     1     4 4.085653118e+03 7.887e-02 6.444e-02 3.44e-02   G   2.26e+00
+     2     5 3.667356950e+03 1.024e-01 6.513e-02 1.13e-01   G   0.00e+00
+     3     6 3.353625123e+03 8.555e-02 5.947e-02 2.32e-01   S   0.00e+00
+     4     7 3.241727942e+03 3.337e-02 2.308e-02 3.69e-01   S   0.00e+00
+     5     8 3.218100136e+03 7.289e-03 7.393e-03 4.02e-01   S   0.00e+00
+     6     9 3.218025662e+03 2.314e-05 2.275e-05 1.41e-02   S   0.00e+00
+     7    10 3.218025372e+03 9.019e-08 8.788e-08 8.09e-04   S   0.00e+00
+     8    11 3.218025371e+03 2.907e-10 2.847e-10 5.44e-05   S   0.00e+00
+     9    12 3.218025371e+03 8.419e-13 8.621e-13 2.35e-06   S   0.00e+00
+
+***** Relative function convergence *****
+
+Estimated parameters with approximate standard errors from BHHH matrix:
+             Estimate     BHHH se BHH t-ratio (0)
+asc_cart     -0.08196     0.07520         -1.0899
+b_cost       -0.20182     0.01884        -10.7134
+asc_carnt     0.31084     0.09261          3.3564
+b_vehlic      0.02305     0.01122          2.0549
+asc_bus       0.02079     0.09961          0.2088
+asc_tr       -0.04165     0.09430         -0.4417
+asc_bw        0.09340     0.08728          1.0700
+asc_lr        0.00000          NA              NA
+
+Final LL: -3218.0254
+
+Calculating log-likelihood at equal shares (LL(0)) for applicable models...
+Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
+Calculating LL of each model component...
+Calculating other model fit measures
+Computing covariance matrix using numerical jacobian of analytical gradient.
+ 0%....25%....50%....75%....100%
+Negative definite Hessian with maximum eigenvalue: -41.826738
+Computing score matrix...
+
+Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
+
+Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
+Apollo ignition sequence completed
+All checks on apollo_control completed.
+WARNING: Your database contains some entries that are NA. This may well be intentional, but be advised that if these entries are used in your model, the behaviour may be unexpected. 
+WARNING: Your database contains variable(s) "drivlic" codified as factors. Apollo does not support factors, and using them inside apollo_probabilities may lead to NA values in the loglikelihood. If you want to use these
+  variables, we recommend manually transforming them into numeric variables.
+All checks on database completed.
+
+
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+Preparing user-defined functions.
+
+Testing likelihood function...
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Pre-processing likelihood function...
+
+Testing influence of parameters
+Starting main estimation
+
+BGW using analytic model derivatives supplied by caller...
+
+
+Iterates will be written to: 
+ hrg03_mnl/hrg03_mnl6_iterations.csv
+    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
+     0     1 3.300442649e+03
+     1     3 3.243914823e+03 1.713e-02 1.771e-02 9.49e-02   G   2.39e+00
+     2     4 3.212730172e+03 9.613e-03 1.073e-02 1.87e-01   G   3.92e-01
+     3     5 3.201976378e+03 3.347e-03 3.379e-03 1.56e-01   S   8.35e-02
+     4     6 3.199585296e+03 7.468e-04 7.065e-04 1.30e-01   S   3.34e-03
+     5     7 3.199521389e+03 1.997e-05 1.956e-05 2.78e-02   S   0.00e+00
+     6     8 3.199521231e+03 4.928e-08 4.680e-08 9.98e-04   G   0.00e+00
+     7     9 3.199521230e+03 4.676e-10 4.271e-10 7.68e-05   G   0.00e+00
+     8    10 3.199521230e+03 7.354e-12 7.535e-12 1.33e-05   S   0.00e+00
+
+***** Relative function convergence *****
+
+Estimated parameters with approximate standard errors from BHHH matrix:
+              Estimate     BHHH se BHH t-ratio (0)
+asc_cart      -0.08707     0.07543         -1.1543
+b_cost        -0.20668     0.02111         -9.7911
+asc_carnt      0.42028     0.07939          5.2942
+asc_bus       -0.58527     0.23523         -2.4881
+b_fare1        0.18216     0.30624          0.5948
+b_fare3       -0.78898     0.37102         -2.1265
+b_time10      -1.12909     0.38482         -2.9341
+b_time15      -0.77819     0.36749         -2.1176
+b_fr1tim10     1.15126     0.48250          2.3860
+b_fr1tim15     0.90682     0.47199          1.9213
+b_fr3tim10     2.50858     0.52536          4.7749
+b_fr3tim15     2.21733     0.51001          4.3476
+asc_tr        -0.03988     0.09454         -0.4219
+asc_bw         0.09093     0.08736          1.0409
+asc_lr         0.00000          NA              NA
+
+Final LL: -3199.5212
+
+Calculating log-likelihood at equal shares (LL(0)) for applicable models...
+Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
+Calculating LL of each model component...
+Calculating other model fit measures
+Computing covariance matrix using numerical jacobian of analytical gradient.
+ 0%....25%....50%....75%...100%
+Negative definite Hessian with maximum eigenvalue: -1.199858
+Computing score matrix...
+
+Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
+
+Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
+Apollo ignition sequence completed
+Apollo ignition sequence completed

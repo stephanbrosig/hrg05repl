@@ -1,0 +1,286 @@
+Codefile:hrg03_mnl08.r 
+
+spchoice[] (Length:9476, # of nonmissing elements:9476)
+  Frequency PctShare LevelCode             LevelText
+1      2400       25         1    car with toll (SP)
+2      2632       28         2 car without toll (SP)
+3       976       10         3              bus (SP)
+4       978       10         4            train (SP)
+5      1270       13         5           busway (SP)
+6      1220       13         6       light rail (SP)
+
+
+print(asm) for id %in% c(1000,1001,1002,1006,1008 
+# A tibble: 60 × 20
+      id spexp altij spchoice              choice cn                        time timevar  toll tollpred  fuel parking  freq  fare numbvehs ndrivlic drivlic altijc spchoicec cnf     
+   <int> <dbl> <fct> <fct>                  <int> <fct>                    <int>   <int> <dbl>    <int> <int>   <int> <int> <int>    <int>    <int> <fct>   <chr>  <chr>     <fct>   
+ 1  1000     1 CART  car without toll (SP)      0 Train - Light Rail (SP)     15       0   1          2     1      10     0     0        2        2 Y       CART   2_carnt   3: tr+lr
+ 2  1000     1 CARNT car without toll (SP)      1 Train - Light Rail (SP)     25       0   0          0     5       0     0     0        2        2 Y       CARNT  2_carnt   3: tr+lr
+ 3  1000     1 TR    car without toll (SP)      0 Train - Light Rail (SP)     15       0   0          0     0       0    25     1        2        2 Y       TR     2_carnt   3: tr+lr
+ 4  1000     1 LR    car without toll (SP)      0 Train - Light Rail (SP)     10       0   0          0     0       0     5     3        2        2 Y       LR     2_carnt   3: tr+lr
+ 5  1000     2 CART  light rail (SP)            0 Busway - Light Rail (SP)    10       1   1.5        0     2      20     0     0        2        2 Y       CART   6_lr      4: bw+lr
+ 6  1000     2 CARNT light rail (SP)            0 Busway - Light Rail (SP)    15       4   0          0     3      10     0     0        2        2 Y       CARNT  6_lr      4: bw+lr
+ 7  1000     2 BW    light rail (SP)            0 Busway - Light Rail (SP)    10       0   0          0     0       0    15     5        2        2 Y       BW     6_lr      4: bw+lr
+ 8  1000     2 LR    light rail (SP)            1 Busway - Light Rail (SP)    20       0   0          0     0       0    25     1        2        2 Y       LR     6_lr      4: bw+lr
+ 9  1000     3 CART  train (SP)                 0 Bus - Train (SP)            12       2   2          1     3       0     0     0        2        2 Y       CART   4_tr      1: b+tr 
+10  1000     3 CARNT train (SP)                 0 Bus - Train (SP)            20       6   0          0     4      20     0     0        2        2 Y       CARNT  4_tr      1: b+tr 
+# ℹ 50 more rows
+# ℹ Use `print(n = ...)` to see more rows
+
+Data successfully turned from long to wide format.
+
+Long data had 6 unique alternatives
+Alternative names were: CART CARNT TR LR BW BUS
+
+The following notation was used for the wide format:
+For alternative j, the following naming convention has been adopted:
+    Attributes:    time_j timevar_j toll_j tollpred_j fuel_j parking_j freq_j fare_j
+    Availability:  avail_j
+The choice variable is included in column choice_new.
+                        time       timevar       toll       tollpred       fuel       parking       freq       fare Availability choice_new
+Alternative CART   time_CART  timevar_CART  toll_CART  tollpred_CART  fuel_CART  parking_CART  freq_CART  fare_CART   avail_CART          1
+Alternative CARNT time_CARNT timevar_CARNT toll_CARNT tollpred_CARNT fuel_CARNT parking_CARNT freq_CARNT fare_CARNT  avail_CARNT          2
+Alternative TR       time_TR    timevar_TR    toll_TR    tollpred_TR    fuel_TR    parking_TR    freq_TR    fare_TR     avail_TR          3
+Alternative LR       time_LR    timevar_LR    toll_LR    tollpred_LR    fuel_LR    parking_LR    freq_LR    fare_LR     avail_LR          4
+Alternative BW       time_BW    timevar_BW    toll_BW    tollpred_BW    fuel_BW    parking_BW    freq_BW    fare_BW     avail_BW          5
+Alternative BUS     time_BUS   timevar_BUS   toll_BUS   tollpred_BUS   fuel_BUS   parking_BUS   freq_BUS   fare_BUS    avail_BUS          6
+
+
+Overview of choice data
+                  Available Chosen
+Alternative CART       2369    600
+Alternative CARNT      2369    658
+Alternative TR         1089    243
+Alternative LR         1330    305
+Alternative BW         1280    319
+Alternative BUS        1039    244
+
+
+### Set core controls
+All checks on apollo_control completed.
+WARNING: Your database contains some entries that are NA. This may well be intentional, but be advised that if these entries are used in your model, the behaviour may be unexpected. 
+WARNING: Your database contains variable(s) "altij", "spchoice", "cn", "drivlic", "cnf" codified as factors. Apollo does not support factors, and using them inside apollo_probabilities may lead to NA values in the
+  loglikelihood. If you want to use these variables, we recommend manually transforming them into numeric variables.
+All checks on database completed.
+
+
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
+WARNING: Element database in the global environment differs from that inside apollo_inputs. The latter will be used. If you wish to use the former, stop this function by pressing the "Escape" key, and rerun apollo_validateInputs
+  before calling this function. 
+Preparing user-defined functions.
+
+Testing likelihood function...
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Pre-processing likelihood function...
+
+Testing influence of parameters
+Starting main estimation
+
+BGW using analytic model derivatives supplied by caller...
+
+
+Iterates will be written to: 
+ hrg03_mnl/hrg03_mnl8_iterations.csv
+    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
+     0     1 3.223190940e+03
+     1     3 3.220153480e+03 9.424e-04 9.387e-04 7.74e-02   G   0.00e+00
+     2     4 3.220149706e+03 1.172e-06 1.116e-06 3.13e-03   G   0.00e+00
+     3     5 3.220149679e+03 8.620e-09 8.021e-09 2.75e-04   G   0.00e+00
+     4     6 3.220149678e+03 8.790e-11 8.873e-11 3.36e-05   S   0.00e+00
+
+***** Relative function convergence *****
+
+Estimated parameters with approximate standard errors from BHHH matrix:
+             Estimate     BHHH se BHH t-ratio (0)
+asc_cart     -0.08253     0.07510         -1.0989
+b_cost       -0.20181     0.01882        -10.7223
+asc_carnt     0.41384     0.07836          5.2812
+asc_bus       0.01966     0.09948          0.1976
+asc_tr       -0.04175     0.09429         -0.4427
+asc_bw        0.09251     0.08725          1.0603
+asc_lr        0.00000          NA              NA
+
+Final LL: -3220.1497
+
+Calculating log-likelihood at equal shares (LL(0)) for applicable models...
+Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
+Calculating LL of each model component...
+Calculating other model fit measures
+Computing covariance matrix using numerical jacobian of analytical gradient.
+ 0%....25%....50%....75%.100%
+Negative definite Hessian with maximum eigenvalue: -42.59431
+Computing score matrix...
+
+Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
+
+Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
+
+
+apollo_modelOutput(model)
+Model run by Brosig using Apollo 0.3.5 on R 4.4.3 for Windows.
+Please acknowledge the use of Apollo by citing Hess & Palma (2019)
+  DOI 10.1016/j.jocm.2019.100170
+  www.ApolloChoiceModelling.com
+
+Model name                                  : hrg03_mnl8
+Model description                           : hrg03a_mnl8: hrg 2005 p.360ff Choice probabilities
+Model run at                                : 2025-04-24 12:44:24.27951
+Estimation method                           : bgw
+Model diagnosis                             : Relative function convergence
+Optimisation diagnosis                      : Maximum found
+     hessian properties                     : Negative definite
+     maximum eigenvalue                     : -42.59431
+     reciprocal of condition number         : 0.0100573
+Number of individuals                       : 795
+Number of rows in database                  : 2369
+Number of modelled outcomes                 : 2369
+
+Number of cores used                        :  1 
+Model without mixing
+
+LL(start)                                   : -3223.19
+LL at equal shares, LL(0)                   : -3284.13
+LL at observed shares, LL(C)                : -4039.69
+LL(final)                                   : -3220.15
+Rho-squared vs equal shares                  :  0.0195 
+Adj.Rho-squared vs equal shares              :  0.0177 
+Rho-squared vs observed shares               :  0.2029 
+Adj.Rho-squared vs observed shares           :  0.2026 
+AIC                                         :  6452.3 
+BIC                                         :  6486.92 
+
+Estimated parameters                        : 6
+Time taken (hh:mm:ss)                       :  00:00:0.81 
+     pre-estimation                         :  00:00:0.3 
+     estimation                             :  00:00:0.09 
+     post-estimation                        :  00:00:0.42 
+Iterations                                  :  4  
+
+Unconstrained optimisation.
+
+Estimates:
+             Estimate        s.e.   t.rat.(0)    Rob.s.e. Rob.t.rat.(0)
+asc_cart     -0.08253     0.07553     -1.0927     0.08725       -0.9458
+b_cost       -0.20181     0.01917    -10.5277     0.01871      -10.7887
+asc_carnt     0.41384     0.07641      5.4164     0.08331        4.9677
+asc_bus       0.01966     0.09923      0.1981     0.08885        0.2213
+asc_tr       -0.04175     0.09373     -0.4454     0.09727       -0.4292
+asc_bw        0.09251     0.08588      1.0772     0.09314        0.9932
+asc_lr        0.00000          NA          NA          NA            NA
+
+
+Overview of choices for MNL model component :
+                                    CART   CARNT      TR      LR      BW     BUS
+Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
+Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
+Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
+Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
+
+
+Model output saved to hrg03_mnl/hrg03_mnl8_output.txt 
+Model object saved to hrg03_mnl/hrg03_mnl8.rds 
+Output is no longer being written to file.
+
+
+PREDICTED PROBABILITIES (hrg05: 360) forecast = apollo_prediction(model, apollo_probabilities, apollo_inputs)
+WARNING: Element database in the global environment differs from that inside apollo_inputs. The latter will be used. If you wish to use the former, stop this function by pressing the "Escape" key, and rerun apollo_validateInputs
+  before calling this function. 
+Running predictions from model using parameter estimates...
+Prediction at user provided parameters
+            CART  CARNT    TR     LR     BW   BUS
+Aggregate 600.00 658.00 243.0 305.00 319.00 244.0
+Average     0.25   0.28   0.1   0.13   0.13   0.1
+
+The output from apollo_prediction is a matrix containing the predictions at the estimated values.
+
+
+PREDICTED CHOICE PROBABILITIES (hrg05:361 and 368), predicted mode choice (type 2: mode w 
+       maximum pred probability, and actually chosen mode)
+     ID Observation      CART     CARNT        TR        LR        BW       BUS    chosen chosen
+1  1000           1 0.2857307 0.2093875 0.2976247 0.2072571 0.0000000 0.0000000 0.2093875  CARNT
+2  1000           2 0.2313917 0.3106528 0.0000000 0.3074921 0.1504634 0.0000000 0.3074921     LR
+3  1000           3 0.2424872 0.3255490 0.2525811 0.0000000 0.0000000 0.1793827 0.2525811     TR
+4  1001           1 0.2857307 0.2093875 0.2976247 0.2072571 0.0000000 0.0000000 0.2093875  CARNT
+5  1001           2 0.2424872 0.3255490 0.2525811 0.0000000 0.0000000 0.1793827 0.2424872   CART
+6  1001           3 0.2313917 0.3106528 0.0000000 0.3074921 0.1504634 0.0000000 0.3074921     LR
+7  1002           1 0.3432909 0.2515684 0.2388279 0.1663128 0.0000000 0.0000000 0.2515684  CARNT
+8  1002           2 0.2133207 0.2863918 0.0000000 0.1893346 0.3109529 0.0000000 0.2133207   CART
+9  1002           3 0.2129214 0.2858557 0.1481297 0.0000000 0.0000000 0.3530931 0.3530931    BUS
+10 1004           1 0.1910668 0.2565150 0.0000000 0.0000000 0.3407936 0.2116245 0.2565150  CARNT
+11 1004           2 0.2558250 0.3434555 0.0000000 0.1516529 0.2490665 0.0000000 0.2558250   CART
+12 1004           3 0.2965749 0.2173343 0.0000000 0.0000000 0.1576061 0.3284847 0.2965749   CART
+
+
+AGGREGATES OF PREDICTED CHOICE PROBABILITIES (hrg05: 365f) colSums(forecast[,1:8])
+    CART    CARNT       TR       LR       BW      BUS 
+600.0001 658.0001 242.9999 304.9999 319.0001 244.0000 
+
+
+UTILITIES (hrg05: 368)(=ASC in cases of alternative not in choice set) 
+      CART    CARNT        BUS       TR         BW       LR
+1 0.284337 0.595201 -0.0196621 0.243554 -0.0925073 0.605427
+2 0.486147 0.191582 -0.0196621 0.041745  0.9165382 0.201809
+3 0.687956 0.393392  0.9893834 0.647172 -0.0925073 0.000000
+4 0.284337 0.595201 -0.0196621 0.243554 -0.0925073 0.605427
+5 0.687956 0.393392  0.9893834 0.647172 -0.0925073 0.000000
+6 0.486147 0.191582 -0.0196621 0.041745  0.9165382 0.201809
+7 0.284337 0.595201 -0.0196621 0.647172 -0.0925073 1.009045
+8 0.486147 0.191582 -0.0196621 0.041745  0.1093018 0.605427
+
+
+CROSSTAB pred_choice1 (type 1- prediction: aggregation by summation of predicted probs,
+         Row indicator is 'actual', column indicator is 'predicted'  (cf. table on hrg05: 382)
+       predicted
+actual  CART CARNT BUS  TR  BW  LR  Sum
+  CART   155   167  63  58  81  76  600
+  CARNT  166   185  69  72  84  83  658
+  BUS     61    68  61  27  27   0  244
+  TR      60    70  25  59   0  28  243
+  BW      80    85  25   0  88  41  319
+  LR      77    84   0  27  40  77  305
+  Sum    600   658 244 243 319 305 2369
+
+Share of correct predictions: 26%
+
+
+Corresponding shares of mode predictions within each group defined by actual mode choice
+       predicted
+actual  CART CARNT  BUS   TR   BW   LR
+  CART  0.26  0.28 0.11 0.10 0.14 0.13
+  CARNT 0.25  0.28 0.11 0.11 0.13 0.13
+  BUS   0.25  0.28 0.25 0.11 0.11 0.00
+  TR    0.25  0.29 0.10 0.24 0.00 0.12
+  BW    0.25  0.27 0.08 0.00 0.27 0.13
+  LR    0.25  0.27 0.00 0.09 0.13 0.25
+CROSSTAB pred_choice2 (type 2- prediction: aggregation as count of cases where the level has max pred. prob., ~text on hrg05: 382):
+  Each cell contains the count of predictions of the column label mode among the mode choices indicated in the row label
+  Each cell contains the count of actual choices of the mode indicated in the row label among all predictions of the mode indicated in the column label
+       predicted
+actual  CART CARNT  BUS   TR   BW   LR  Sum
+  CART   117   199   95    8  118   63  600
+  CARNT  102   230  109   52  111   54  658
+  BUS     25    88   98    7   26    0  244
+  TR      22   104   26   56    0   35  243
+  BW      57    57   21    0  173   11  319
+  LR      32   122    0   10   63   78  305
+  Sum    355   800  349  133  491  241 2369
+
+
+Share of (type 2-) mode-predictions for each group of actual mode-choice
+       predicted
+actual  CART CARNT  BUS   TR   BW   LR  Sum
+  CART  0.20  0.33 0.16 0.01 0.20 0.10 1.00
+  CARNT 0.16  0.35 0.17 0.08 0.17 0.08 1.00
+  BUS   0.10  0.36 0.40 0.03 0.11 0.00 1.00
+  TR    0.09  0.43 0.11 0.23 0.00 0.14 1.00
+  BW    0.18  0.18 0.07 0.00 0.54 0.03 1.00
+  LR    0.10  0.40 0.00 0.03 0.21 0.26 1.00
+Output is no longer being written to file.
