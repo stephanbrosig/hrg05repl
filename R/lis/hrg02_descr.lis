@@ -1,71 +1,26 @@
 Codefile:hrg02_descr.r 
-Apollo ignition sequence completed
-All checks on apollo_control completed.
-All checks on database completed.
 
 
-model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
-Preparing user-defined functions.
-
-Testing likelihood function...
-
-Overview of choices for MNL model component :
-                                    CART   CARNT      TR      LR      BW     BUS
-Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
-Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
-Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
-Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
-
-
-Pre-processing likelihood function...
-
-Testing influence of parameters
-Starting main estimation
-
-BGW using analytic model derivatives supplied by caller...
-
-
-Iterates will be written to: 
- hrg03_mnl/hrg03_mnl01_iterations.csv
-    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
-     0     1 3.223190940e+03
-     1     3 3.220153480e+03 9.424e-04 9.387e-04 7.74e-02   G   0.00e+00
-     2     4 3.220149706e+03 1.172e-06 1.116e-06 3.13e-03   G   0.00e+00
-     3     5 3.220149679e+03 8.620e-09 8.021e-09 2.75e-04   G   0.00e+00
-     4     6 3.220149678e+03 8.790e-11 8.873e-11 3.36e-05   S   0.00e+00
-
-***** Relative function convergence *****
-
-Estimated parameters with approximate standard errors from BHHH matrix:
-             Estimate     BHHH se BHH t-ratio (0)
-asc_cart     -0.08253     0.07510         -1.0989
-b_cost       -0.20181     0.01882        -10.7223
-asc_carnt     0.41384     0.07836          5.2812
-asc_bus       0.01966     0.09948          0.1976
-asc_tr       -0.04175     0.09429         -0.4427
-asc_bw        0.09251     0.08725          1.0603
-asc_lr        0.00000          NA              NA
-
-Final LL: -3220.1497
-
-Calculating log-likelihood at equal shares (LL(0)) for applicable models...
-Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
-Calculating LL of each model component...
-Calculating other model fit measures
-Computing covariance matrix using numerical jacobian of analytical gradient.
- 0%....25%....50%....75%.100%
-Negative definite Hessian with maximum eigenvalue: -42.59431
-Computing score matrix...
-
-Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
-
-Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
-
-Old result file "hrg03_mnl/hrg03_mnl01_output.txt" removed/overwritten
-Old result file "hrg03_mnl/hrg03_mnl01_model.rds" removed/overwritten
-Model output saved to hrg03_mnl/hrg03_mnl01_output.txt 
-Model object saved to hrg03_mnl/hrg03_mnl01.rds 
-P)  3: tr+lr    10       0   0          0     0       0     5     3
+FIRST 24 OBSERVATIONS OF SP-RELEVANT COLUMNS IN (long form) DATA SAVED BY hrg01_imp.r (w some labels changed)
+# A tibble: 14,456 × 17
+      id spexp splength altij altijc choice spchoice              cn                       cnf       time timevar  toll tollpred  fuel parking  freq  fare
+   <int> <fct> <fct>    <int> <fct>   <int> <fct>                 <fct>                    <fct>    <int>   <int> <dbl>    <int> <int>   <int> <int> <int>
+ 1  1000 CS1   <30          1 cart        0 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    15       0   1          2     1      10     0     0
+ 2  1000 CS1   <30          2 carnt       1 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    25       0   0          0     5       0     0     0
+ 3  1000 CS1   <30          4 train       0 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    15       0   0          0     0       0    25     1
+ 4  1000 CS1   <30          6 LR          0 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    10       0   0          0     0       0     5     3
+ 5  1000 CS2   <30          1 cart        0 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    10       1   1.5        0     2      20     0     0
+ 6  1000 CS2   <30          2 carnt       0 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    15       4   0          0     3      10     0     0
+ 7  1000 CS2   <30          5 BW          0 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    10       0   0          0     0       0    15     5
+ 8  1000 CS2   <30          6 LR          1 light rail (SP)       Busway - Light Rail (SP) 4: bw+lr    20       0   0          0     0       0    25     1
+ 9  1000 CS3   <30          1 cart        0 train (SP)            Bus - Train (SP)         1: b+tr     12       2   2          1     3       0     0     0
+10  1000 CS3   <30          2 carnt       0 train (SP)            Bus - Train (SP)         1: b+tr     20       6   0          0     4      20     0     0
+11  1000 CS3   <30          3 bus         0 train (SP)            Bus - Train (SP)         1: b+tr     15       0   0          0     0       0    15     5
+12  1000 CS3   <30          4 train       1 train (SP)            Bus - Train (SP)         1: b+tr     20       0   0          0     0       0     5     3
+13  1001 CS1   <30          1 cart        0 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    15       0   1          2     1      10     0     0
+14  1001 CS1   <30          2 carnt       1 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    25       0   0          0     5       0     0     0
+15  1001 CS1   <30          4 train       0 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    15       0   0          0     0       0    25     1
+16  1001 CS1   <30          6 LR          0 car without toll (SP) Train - Light Rail (SP)  3: tr+lr    10       0   0          0     0       0     5     3
 17  1001 CS2   <30          1 cart        1 car with toll (SP)    Bus - Train (SP)         1: b+tr     12       2   2          1     3       0     0     0
 18  1001 CS2   <30          2 carnt       0 car with toll (SP)    Bus - Train (SP)         1: b+tr     20       6   0          0     4      20     0     0
 19  1001 CS2   <30          3 bus         0 car with toll (SP)    Bus - Train (SP)         1: b+tr     15       0   0          0     0       0    15     5
@@ -364,162 +319,27 @@ BGW using analytic model derivatives supplied by caller...
 
 
 Iterates will be written to: 
- hrg03_mnl/hrg03_mnl02_iterations.csv
+ hrg03_mnl/hrg03_mnl01_iterations.csv
     it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
-     0     1 3.306508159e+03
-     1     4 3.277127316e+03 8.886e-03 8.686e-03 3.77e-01   G   0.00e+00
-     2     5 3.277011551e+03 3.532e-05 3.539e-05 5.99e-02   G   0.00e+00
-     3     6 3.277011542e+03 2.890e-09 2.900e-09 4.80e-04   G   0.00e+00
-     4     7 3.277011542e+03 1.542e-13 1.424e-13 3.75e-06   G   0.00e+00
+     0     1 3.223190940e+03
+     1     3 3.220153480e+03 9.424e-04 9.387e-04 7.74e-02   G   0.00e+00
+     2     4 3.220149706e+03 1.172e-06 1.116e-06 3.13e-03   G   0.00e+00
+     3     5 3.220149679e+03 8.620e-09 8.021e-09 2.75e-04   G   0.00e+00
+     4     6 3.220149678e+03 8.790e-11 8.873e-11 3.36e-05   S   0.00e+00
 
 ***** Relative function convergence *****
 
 Estimated parameters with approximate standard errors from BHHH matrix:
              Estimate     BHHH se BHH t-ratio (0)
-asc_cart      0.10014     0.07341          1.3641
-asc_carnt     0.19242     0.07221          2.6648
-asc_bus       0.02563     0.09811          0.2612
-asc_tr       -0.04433     0.09265         -0.4784
-asc_bw        0.09942     0.08502          1.1693
+asc_cart     -0.08253     0.07510         -1.0989
+b_cost       -0.20181     0.01882        -10.7223
+asc_carnt     0.41384     0.07836          5.2812
+asc_bus       0.01966     0.09948          0.1976
+asc_tr       -0.04175     0.09429         -0.4427
+asc_bw        0.09251     0.08725          1.0603
 asc_lr        0.00000          NA              NA
 
-Final LL: -3277.0115
-
-Calculating log-likelihood at equal shares (LL(0)) for applicable models...
-Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
-Calculating LL of each model component...
-Calculating other model fit measures
-Computing covariance matrix using numerical jacobian of analytical gradient.
- 0%....25%....50%...100%
-Negative definite Hessian with maximum eigenvalue: -43.467489
-Computing score matrix...
-
-Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
-
-Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
-Apollo ignition sequence completed
-All checks on apollo_control completed.
-All checks on database completed.
-
-
-model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
-Preparing user-defined functions.
-
-Testing likelihood function...
-
-Overview of choices for MNL model component :
-                                    CART   CARNT      TR      LR      BW     BUS
-Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
-Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
-Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
-Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
-
-
-Pre-processing likelihood function...
-
-Testing influence of parameters
-Starting main estimation
-
-BGW using analytic model derivatives supplied by caller...
-
-
-Iterates will be written to: 
- hrg03_mnl/hrg03_mnl3_iterations.csv
-    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
-     0     1 4.452992283e+03
-     1     4 3.725531642e+03 1.634e-01 1.228e-01 1.02e-01   G   8.01e-01
-     2     5 3.278506246e+03 1.200e-01 9.138e-02 3.76e-01   G   0.00e+00
-     3     6 3.214837372e+03 1.942e-02 2.092e-02 1.00e+00   S   0.00e+00
-     4     7 3.214245682e+03 1.840e-04 1.810e-04 1.10e-01   S   0.00e+00
-     5     8 3.214240591e+03 1.584e-06 1.534e-06 6.96e-03   S   0.00e+00
-     6     9 3.214240549e+03 1.320e-08 1.317e-08 9.65e-04   S   0.00e+00
-     7    10 3.214240549e+03 1.568e-11 1.603e-11 1.26e-05   S   0.00e+00
-
-***** Relative function convergence *****
-
-Estimated parameters with approximate standard errors from BHHH matrix:
-             Estimate     BHHH se BHH t-ratio (0)
-asc_cart     -0.43353     0.17425         -2.4881
-b_cart       -0.09766     0.05753         -1.6976
-asc_carnt    -0.16668     0.26164         -0.6371
-b_carnt      -0.09244     0.05686         -1.6257
-asc_bus      -0.18886     0.19780         -0.9548
-b_bus        -0.17878     0.04784         -3.7370
-asc_tr       -0.15245     0.18358         -0.8304
-b_tr         -0.21490     0.04443         -4.8365
-asc_bw        0.11530     0.17735          0.6501
-b_bw         -0.26643     0.04141         -6.4332
-asc_lr        0.00000          NA              NA
-b_lr         -0.25775     0.04186         -6.1576
-
-Final LL: -3214.2405
-
-Calculating log-likelihood at equal shares (LL(0)) for applicable models...
-Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
-Calculating LL of each model component...
-Calculating other model fit measures
-Computing covariance matrix using numerical jacobian of analytical gradient.
- 0%....25%....50%....75%..100%
-Negative definite Hessian with maximum eigenvalue: -9.208252
-Computing score matrix...
-
-Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
-
-Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
-Apollo ignition sequence completed
-All checks on apollo_control completed.
-All checks on database completed.
-
-
-model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
-Preparing user-defined functions.
-
-Testing likelihood function...
-
-Overview of choices for MNL model component :
-                                    CART   CARNT      TR      LR      BW     BUS
-Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
-Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
-Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
-Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
-
-
-Pre-processing likelihood function...
-
-Testing influence of parameters
-Starting main estimation
-
-BGW using analytic model derivatives supplied by caller...
-
-
-Iterates will be written to: 
- hrg03_mnl/hrg03_mnl4_iterations.csv
-    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
-     0     1 3.264382464e+03
-     1     3 3.245680416e+03 5.729e-03 5.916e-03 5.43e-02   G   2.36e+00
-     2     4 3.227185849e+03 5.698e-03 6.052e-03 1.44e-01   G   3.87e-01
-     3     5 3.218049630e+03 2.831e-03 2.804e-03 3.12e-01   S   0.00e+00
-     4     6 3.217960633e+03 2.766e-05 2.859e-05 2.12e-02   S   0.00e+00
-     5     7 3.217960441e+03 5.974e-08 6.299e-08 7.27e-04   G   0.00e+00
-     6     8 3.217960439e+03 4.143e-10 4.055e-10 5.97e-05   S   0.00e+00
-     7     9 3.217960439e+03 1.587e-12 1.516e-12 3.22e-06   S   0.00e+00
-
-***** Relative function convergence *****
-
-Estimated parameters with approximate standard errors from BHHH matrix:
-              Estimate     BHHH se BHH t-ratio (0)
-asc_cart      -0.06486     0.07561         -0.8578
-b_cost        -0.18203     0.02125         -8.5663
-asc_carnt      0.39187     0.07938          4.9366
-asc_bus        0.02057     0.09969          0.2063
-asc_tr        -0.04100     0.09423         -0.4351
-asc_bw        -0.95673     0.15513         -6.1672
-b_fare_bw1     1.05038     0.16753          6.2699
-b_fare_bw3     0.38560     0.17771          2.1698
-b_fare_bw5     0.00000          NA              NA
-asc_lr         0.00000          NA              NA
-
-Final LL: -3217.9604
+Final LL: -3220.1497
 
 Calculating log-likelihood at equal shares (LL(0)) for applicable models...
 Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
@@ -527,157 +347,14 @@ Calculating LL of each model component...
 Calculating other model fit measures
 Computing covariance matrix using numerical jacobian of analytical gradient.
  0%....25%....50%....75%.100%
-Negative definite Hessian with maximum eigenvalue: -15.700759
+Negative definite Hessian with maximum eigenvalue: -42.59431
 Computing score matrix...
 
 Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
 
 Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
-Apollo ignition sequence completed
-All checks on apollo_control completed.
-WARNING: Your database contains some entries that are NA. This may well be intentional, but be advised that if these entries are used in your model, the behaviour may be unexpected. 
-WARNING: Your database contains variable(s) "drivlic" codified as factors. Apollo does not support factors, and using them inside apollo_probabilities may lead to NA values in the loglikelihood. If you want to use these
-  variables, we recommend manually transforming them into numeric variables.
-All checks on database completed.
 
-
-model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
-Preparing user-defined functions.
-
-Testing likelihood function...
-
-Overview of choices for MNL model component :
-                                    CART   CARNT      TR      LR      BW     BUS
-Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
-Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
-Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
-Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
-
-
-Pre-processing likelihood function...
-
-Testing influence of parameters
-Starting main estimation
-
-BGW using analytic model derivatives supplied by caller...
-
-
-Iterates will be written to: 
- hrg03_mnl/hrg03_mnl5_iterations.csv
-    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
-     0     1 4.435471591e+03
-     1     4 4.085653118e+03 7.887e-02 6.444e-02 3.44e-02   G   2.26e+00
-     2     5 3.667356950e+03 1.024e-01 6.513e-02 1.13e-01   G   0.00e+00
-     3     6 3.353625123e+03 8.555e-02 5.947e-02 2.32e-01   S   0.00e+00
-     4     7 3.241727942e+03 3.337e-02 2.308e-02 3.69e-01   S   0.00e+00
-     5     8 3.218100136e+03 7.289e-03 7.393e-03 4.02e-01   S   0.00e+00
-     6     9 3.218025662e+03 2.314e-05 2.275e-05 1.41e-02   S   0.00e+00
-     7    10 3.218025372e+03 9.019e-08 8.788e-08 8.09e-04   S   0.00e+00
-     8    11 3.218025371e+03 2.907e-10 2.847e-10 5.44e-05   S   0.00e+00
-     9    12 3.218025371e+03 8.419e-13 8.621e-13 2.35e-06   S   0.00e+00
-
-***** Relative function convergence *****
-
-Estimated parameters with approximate standard errors from BHHH matrix:
-             Estimate     BHHH se BHH t-ratio (0)
-asc_cart     -0.08196     0.07520         -1.0899
-b_cost       -0.20182     0.01884        -10.7134
-asc_carnt     0.31084     0.09261          3.3564
-b_vehlic      0.02305     0.01122          2.0549
-asc_bus       0.02079     0.09961          0.2088
-asc_tr       -0.04165     0.09430         -0.4417
-asc_bw        0.09340     0.08728          1.0700
-asc_lr        0.00000          NA              NA
-
-Final LL: -3218.0254
-
-Calculating log-likelihood at equal shares (LL(0)) for applicable models...
-Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
-Calculating LL of each model component...
-Calculating other model fit measures
-Computing covariance matrix using numerical jacobian of analytical gradient.
- 0%....25%....50%....75%....100%
-Negative definite Hessian with maximum eigenvalue: -41.826738
-Computing score matrix...
-
-Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
-
-Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
-Apollo ignition sequence completed
-All checks on apollo_control completed.
-WARNING: Your database contains some entries that are NA. This may well be intentional, but be advised that if these entries are used in your model, the behaviour may be unexpected. 
-WARNING: Your database contains variable(s) "drivlic" codified as factors. Apollo does not support factors, and using them inside apollo_probabilities may lead to NA values in the loglikelihood. If you want to use these
-  variables, we recommend manually transforming them into numeric variables.
-All checks on database completed.
-
-
-model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs)
-Preparing user-defined functions.
-
-Testing likelihood function...
-
-Overview of choices for MNL model component :
-                                    CART   CARNT      TR      LR      BW     BUS
-Times available                  2369.00 2369.00 1089.00 1330.00 1280.00 1039.00
-Times chosen                      600.00  658.00  243.00  305.00  319.00  244.00
-Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
-Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
-
-
-Pre-processing likelihood function...
-
-Testing influence of parameters
-Starting main estimation
-
-BGW using analytic model derivatives supplied by caller...
-
-
-Iterates will be written to: 
- hrg03_mnl/hrg03_mnl6_iterations.csv
-    it    nf     F            RELDF    PRELDF    RELDX    MODEL stppar
-     0     1 3.300442649e+03
-     1     3 3.243914823e+03 1.713e-02 1.771e-02 9.49e-02   G   2.39e+00
-     2     4 3.212730172e+03 9.613e-03 1.073e-02 1.87e-01   G   3.92e-01
-     3     5 3.201976378e+03 3.347e-03 3.379e-03 1.56e-01   S   8.35e-02
-     4     6 3.199585296e+03 7.468e-04 7.065e-04 1.30e-01   S   3.34e-03
-     5     7 3.199521389e+03 1.997e-05 1.956e-05 2.78e-02   S   0.00e+00
-     6     8 3.199521231e+03 4.928e-08 4.680e-08 9.98e-04   G   0.00e+00
-     7     9 3.199521230e+03 4.676e-10 4.271e-10 7.68e-05   G   0.00e+00
-     8    10 3.199521230e+03 7.354e-12 7.535e-12 1.33e-05   S   0.00e+00
-
-***** Relative function convergence *****
-
-Estimated parameters with approximate standard errors from BHHH matrix:
-              Estimate     BHHH se BHH t-ratio (0)
-asc_cart      -0.08707     0.07543         -1.1543
-b_cost        -0.20668     0.02111         -9.7911
-asc_carnt      0.42028     0.07939          5.2942
-asc_bus       -0.58527     0.23523         -2.4881
-b_fare1        0.18216     0.30624          0.5948
-b_fare3       -0.78898     0.37102         -2.1265
-b_time10      -1.12909     0.38482         -2.9341
-b_time15      -0.77819     0.36749         -2.1176
-b_fr1tim10     1.15126     0.48250          2.3860
-b_fr1tim15     0.90682     0.47199          1.9213
-b_fr3tim10     2.50858     0.52536          4.7749
-b_fr3tim15     2.21733     0.51001          4.3476
-asc_tr        -0.03988     0.09454         -0.4219
-asc_bw         0.09093     0.08736          1.0409
-asc_lr         0.00000          NA              NA
-
-Final LL: -3199.5212
-
-Calculating log-likelihood at equal shares (LL(0)) for applicable models...
-Calculating log-likelihood at observed shares from estimation data (LL(c)) for applicable models...
-Calculating LL of each model component...
-Calculating other model fit measures
-Computing covariance matrix using numerical jacobian of analytical gradient.
- 0%....25%....50%....75%...100%
-Negative definite Hessian with maximum eigenvalue: -1.199858
-Computing score matrix...
-
-Your model was estimated using the BGW algorithm. Please acknowledge this by citing Bunch et al. (1993) - doi.org/10.1145/151271.151279
-
-Please acknowledge the use of Apollo by citing Hess & Palma (2019) - doi.org/10.1016/j.jocm.2019.100170
-Apollo ignition sequence completed
-Apollo ignition sequence completed
+Old result file "hrg03_mnl/hrg03_mnl01_output.txt" removed/overwritten
+Old result file "hrg03_mnl/hrg03_mnl01_model.rds" removed/overwritten
+Model output saved to hrg03_mnl/hrg03_mnl01_output.txt 
+Model object saved to hrg03_mnl/hrg03_mnl01.rds 

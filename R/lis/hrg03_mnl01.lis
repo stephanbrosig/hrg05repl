@@ -82,7 +82,7 @@ Please acknowledge the use of Apollo by citing Hess & Palma (2019)
 
 Model name                                  : hrg03_mnl01
 Model description                           : hrg03a_mnl01: Replication of hrg Ch 10.3(p. 316f) MNL result
-Model run at                                : 2025-04-24 12:42:03.739979
+Model run at                                : 2025-04-25 07:45:26.493611
 Estimation method                           : bgw
 Model diagnosis                             : Relative function convergence
 Optimisation diagnosis                      : Maximum found
@@ -108,10 +108,10 @@ AIC                                         :  6452.3
 BIC                                         :  6486.92 
 
 Estimated parameters                        : 6
-Time taken (hh:mm:ss)                       :  00:00:0.63 
-     pre-estimation                         :  00:00:0.26 
-     estimation                             :  00:00:0.09 
-     post-estimation                        :  00:00:0.28 
+Time taken (hh:mm:ss)                       :  00:00:0.85 
+     pre-estimation                         :  00:00:0.36 
+     estimation                             :  00:00:0.12 
+     post-estimation                        :  00:00:0.37 
 Iterations                                  :  4  
 
 Unconstrained optimisation.

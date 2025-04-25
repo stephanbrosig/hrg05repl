@@ -21,7 +21,7 @@ Please acknowledge the use of Apollo by citing Hess & Palma (2019)
 
 Model name                                  : hrg03_mnl6
 Model description                           : hrg03a_mnl6: hrg 2005 p. 355f: interactions2 (nl: cat)
-Model run at                                : 2025-04-24 12:44:05.293299
+Model run at                                : 2025-04-25 07:46:25.549489
 Estimation method                           : bgw
 Model diagnosis                             : Relative function convergence
 Optimisation diagnosis                      : Maximum found
@@ -47,10 +47,10 @@ AIC                                         :  6427.04
 BIC                                         :  6507.83 
 
 Estimated parameters                        : 14
-Time taken (hh:mm:ss)                       :  00:00:1.72 
-     pre-estimation                         :  00:00:0.44 
-     estimation                             :  00:00:0.18 
-     post-estimation                        :  00:00:1.11 
+Time taken (hh:mm:ss)                       :  00:00:1.7 
+     pre-estimation                         :  00:00:0.41 
+     estimation                             :  00:00:0.16 
+     post-estimation                        :  00:00:1.14 
 Iterations                                  :  8  
 
 Unconstrained optimisation.
@@ -82,6 +82,9 @@ Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
 Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
 
 
+
+Old result file "hrg03_mnl/hrg03_mnl6_output.txt" removed/overwritten
+Old result file "hrg03_mnl/hrg03_mnl6_model.rds" removed/overwritten
 Model output saved to hrg03_mnl/hrg03_mnl6_output.txt 
 Model object saved to hrg03_mnl/hrg03_mnl6.rds 
                   LL par

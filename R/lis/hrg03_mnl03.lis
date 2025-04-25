@@ -21,7 +21,7 @@ Please acknowledge the use of Apollo by citing Hess & Palma (2019)
 
 Model name                                  : hrg03_mnl3
 Model description                           : hrg03a_mnl3: HRG05 LR-Test comparing two models (335ff)
-Model run at                                : 2025-04-24 12:43:37.942657
+Model run at                                : 2025-04-25 07:45:51.494778
 Estimation method                           : bgw
 Model diagnosis                             : Relative function convergence
 Optimisation diagnosis                      : Maximum found
@@ -47,10 +47,10 @@ AIC                                         :  6450.48
 BIC                                         :  6513.95 
 
 Estimated parameters                        : 11
-Time taken (hh:mm:ss)                       :  00:00:1.3 
+Time taken (hh:mm:ss)                       :  00:00:1.07 
      pre-estimation                         :  00:00:0.28 
-     estimation                             :  00:00:0.33 
-     post-estimation                        :  00:00:0.68 
+     estimation                             :  00:00:0.14 
+     post-estimation                        :  00:00:0.65 
 Iterations                                  :  7  
 
 Unconstrained optimisation.

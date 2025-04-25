@@ -1,4 +1,12 @@
 Codefile:hrg02a_descr_repl.r 
+      2   1
+2   123 123
+1   107 107
+3   148 148
+5   124 124
+4   155 155
+6   138 138
+Sum 795 795
 [1] 9476   45
 
 Data successfully turned from long to wide format.

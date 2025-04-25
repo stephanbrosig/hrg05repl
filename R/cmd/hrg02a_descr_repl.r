@@ -1,10 +1,7 @@
 #  screen hrg Data 
-# input : dat/hrg01_imp.Rds
+# input : datdir/hrg01_imp.Rds
 
 lisdat <- paste("lis\\",codefile, ".lis",sep="")   # for naming listing file ONLY USED DURING CODING
-lisdatu <- paste("lis\\",codefile, "_ua.lis",sep="")   # for naming listing file W UKRAINIAN LABELS
-lisdate <- paste("lis\\",codefile, "_en.lis",sep="")   # for naming listing file W ENGLISH LABELS
-outdat <- paste("dat\\",codefile,".RData",sep="")   # for naming output file
 sink(lisdat, append = FALSE, type="output")
 
 cat(paste("Codefile:",codefile,".r",sep=""),"\n")
@@ -14,23 +11,12 @@ library(tidyverse)
 #library(olsrr) # auxiliary regression 
 library(labelled) # var_label
 library(summarytools)  # dfSummary
+library(apollo)  # for apollo_longToWide
 
 
-#asm <- as.tibble(readRDS(file = "dat/hrg01_imp.Rds"))  
-asm <- as_tibble(readRDS(file = "dat/hrg01a_imp_repl.Rds"))  
+asm <- as_tibble(readRDS(file = paste0(datdir,"/hrg01a_imp_repl.Rds")))  
 
-##  ## change factor levels ("labels") to shorter versions
-##  asm$splength <- factor(as.numeric(asm$splength) , levels = 1:4,  labels = c("RP","<30", "30-45", ">45"))
-##  asm$pereduc  <- factor(as.numeric(asm$pereduc)   , levels = 1:5,  labels = c("PP", "Prim", "Sec", "TeCo", "Uni"))
-##  asm$wkroccup <- factor(as.numeric(asm$wkroccup) , levels = 1:9,  labels = c("Mgr", "Prof", "PP", "Trd", "Clk", "Sls", "Plt", "Lab", "Oth"))
-##  asm$wkremply <- factor(as.numeric(asm$wkremply) , levels = 1:3,  labels = c("Full", "Part", "SE"))
-##  asm$hldincom <- factor(as.numeric(asm$hldincom) , levels = 1:11, labels = c("<5","5-12","12-20","20-30","30-40","40-50","50-60","60-70","70-80","80-90","90-120"))
-##  asm$altijc    <- factor(asm$altij , levels = 1:6, labels = c("cart","carnt","bus","train","LR","BW"))
-##  asm$spexp    <- factor(as.numeric(asm$spexp) , levels = 1:4, labels = c("CS1","CS2","CS3","RP"))
-##  asm$spmiss   <- factor(as.numeric(asm$spmiss) , levels = 1:2, labels = c("cpl","miss"))
-##  asm$rpmiss   <- factor(as.numeric(asm$rpmiss) , levels = 1:2, labels = c("cpl","miss"))
-##  asm$rpda     <- factor(as.numeric(asm$rpda) , levels = 1:2, labels = c("DA","nDA"))
-##  asm$drivlic  <- factor(as.numeric(asm$drivlic) , levels = 1:3, labels = c("Y","N","nA"))
+
 
 #cat("\n\nFIRST 24 OBSERVATIONS OF SP-RELEVANT COLUMNS IN DATA SAVED BY hrg01_imp.r (w some labels changed)\n")
 #asm %>% 
@@ -44,14 +30,14 @@ asm <- asm %>%  filter(sprp == 2 & splength == 1 ) %>% # subset using SP data an
 
 #options(width=256)  # for A4 landscape 
 
-#asm$city <- factor(asm$city, levels = c(2,1,3,5,4,6))  # order as in table 9.11 of the book 
+asm$city <- factor(asm$city, levels = c(2,1,3,5,4,6))  # order as in table 9.11 of the book 
 
-# asms <- asm 
-# asmd <- asms %>% distinct(id,sprp, .keep_all = TRUE)
-# 
-# a <- addmargins(table(asmd$city,asmd$sprp),1)
-# b <- addmargins(table(asmd$city[asmd$sprp==2],asmd$splength[asmd$sprp==2]),1)
-# cbind(a,b)
+asms <- asm 
+asmd <- asms %>% distinct(id,sprp, .keep_all = TRUE)
+
+a <- addmargins(table(asmd$city,asmd$sprp),1)
+b <- addmargins(table(asmd$city[asmd$sprp==2],asmd$splength[asmd$sprp==2]),1)
+cbind(a,b)
 
 ##  cat("\nRESULT OF FIRST AUXILIARY REGRESSION, cf HRG2005: 293\n")
 ##  asms1 <- asms %>%   filter(altij == "1")  

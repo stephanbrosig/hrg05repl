@@ -1,10 +1,8 @@
 #  hrg 2005 Ch 10: MNL 
-# input : dat/hrg01_imp.Rds
+# input : datdir/hrg01_imp.Rds
 
 
 lisdat <- paste("lis\\",codefile, ".lis",sep="")   # for naming listing file ONLY USED DURING CODING
-lisdatu <- paste("lis\\",codefile, "_ua.lis",sep="")   # for naming listing file W UKRAINIAN LABELS
-lisdate <- paste("lis\\",codefile, "_en.lis",sep="")   # for naming listing file W ENGLISH LABELS
 outdat <- paste("dat\\",codefile,".RData",sep="")   # for naming output file
 sink(lisdat, append = FALSE, type="output")
 
@@ -15,7 +13,7 @@ library(tidyverse)
 library(apollo)  
 
 
-asm <- readRDS(file = "dat/hrg01_imp.Rds")  %>% 
+asm <- readRDS(file = paste0(datdir,"/hrg01_imp.Rds"))  %>%  # local drive datdir as defined in _hrg_steer.r
   select(-city,-chsnmode,-altmode,-cset,-altisprp,-starts_with("rp"),rpmiss,rpda,-mptrfare,-optrfare,-homtoptr,-ptrtowk,
   -hhldveh,-wkkmveh,-(30:70),-(74:76),-numbvehs,-nhldbcar,-ncompcar,-ndrivlic) %>%  # remove cols (temporally) not needed
   select(-spcart,-spcarnt,-spbus,-sptn,-spbw,-splr)

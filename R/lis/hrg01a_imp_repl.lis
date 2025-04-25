@@ -23,6 +23,8 @@ Data set dimension: 16188 * 109
   Data set dimension is consistent with p.287 of the book. The number of RP-respondents (866) conforms
 with table 9.11. Total number of SP respondents (1212) exceeds the figure in table 9.11 (1204).
 
+Data file saved: C:/Users/Brosig/Documents/work/hrg05data/hrg01a_imp_repl.Rds
+
 
 II) Codebook of saved data set (i.e. after removal of 2 records with splength='RP' so as 
   to achieve consistency (16186 Obs)  w Appendix 9B(7B): Mode choice Case Study Data Dictionary)

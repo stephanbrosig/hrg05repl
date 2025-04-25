@@ -1,12 +1,10 @@
 #  import HensherRoseGreen Data and apply labels
 # input : ../raw/Data/SPRP.txt received via Email on 250302
-# output: /dat/XXX.Rds and /lis/XXX.lis  with XXX replaced by the name of this code file  (/cmd/XXX.r)
+# output: datdir/XXX.Rds and /lis/XXX.lis  with XXX replaced by the name of this code file  (/cmd/XXX.r)
 #         
 
 lisdat <- paste("lis\\",codefile, ".lis",sep="")   # for naming listing file ONLY USED DURING CODING
-lisdatu <- paste("lis\\",codefile, "_ua.lis",sep="")   # for naming listing file W UKRAINIAN LABELS
-lisdate <- paste("lis\\",codefile, "_en.lis",sep="")   # for naming listing file W ENGLISH LABELS
-outdat <- paste("dat\\",codefile,".RData",sep="")   # for naming output file
+outdat <- paste(datdir,"/",codefile,".Rds",sep="")   # for naming data output file (r-format)
 sink(lisdat, append = FALSE, type="output")
 
 cat(paste("Codefile:",codefile,".r",sep=""),"\n")
@@ -32,7 +30,7 @@ spalnam <- c("id","city","sprp","spexp","altisprp","altij","chsnmode","altmode",
              "ndrivlic","hldsize","nworkers","wkremply","wkroccup","perage","drivlic","pincome","persex","pereduc",
              "acceggt","can","syd","mel","brs","adl")
 # Read the file from sav file exported from Qualtrics
-asm <- read.csv("../raw/Data/SPRP.txt",header=FALSE, sep = "\t",col.names = spalnam) %>%
+asm <- read.csv(paste0(datdir,"/Data/SPRP.txt"),header=FALSE, sep = "\t",col.names = spalnam) %>%
        filter(!is.na(id))  %>% # raw data has two records with no data at the end: remove
        mutate(across(everything(), ~ na_if(.x, -999)))  # replace -999 by NA
        
@@ -278,7 +276,8 @@ indicates lower numbers for Canberra in the group of '<30 minutes' (104) and for
 asm$city <- factor(asm$city, levels = c("Canberra", "Sydney", "Melbourne", "Brisbane", "Adelaide", "Perth"))  # order as in table 9.11 of the book 
 asm <- asm %>%filter(splength != "RP") # this removes 2 RP records of id 6207, the only TWO records with splength = "RP"
 
-saveRDS(asm,file=paste("dat/",codefile,".Rds",sep=""))  # saves in R format
+saveRDS(asm,file=outdat)  # saves in R format
+cat(paste("\n\nData file saved:",outdat))
 
 cat("\n\n\nII) Codebook of saved data set (i.e. after removal of 2 records with splength='RP' so as 
   to achieve consistency (16186 Obs)  w Appendix 9B(7B): Mode choice Case Study Data Dictionary)\n")

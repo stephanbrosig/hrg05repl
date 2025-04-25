@@ -21,7 +21,7 @@ Please acknowledge the use of Apollo by citing Hess & Palma (2019)
 
 Model name                                  : hrg03_mnl4
 Model description                           : hrg03a_mnl4: Replication of hrg p. 344 dummy coding (nonlinear)
-Model run at                                : 2025-04-24 12:43:48.760366
+Model run at                                : 2025-04-25 07:45:58.689502
 Estimation method                           : bgw
 Model diagnosis                             : Relative function convergence
 Optimisation diagnosis                      : Maximum found
@@ -47,10 +47,10 @@ AIC                                         :  6451.92
 BIC                                         :  6498.08 
 
 Estimated parameters                        : 8
-Time taken (hh:mm:ss)                       :  00:00:0.88 
-     pre-estimation                         :  00:00:0.29 
-     estimation                             :  00:00:0.14 
-     post-estimation                        :  00:00:0.45 
+Time taken (hh:mm:ss)                       :  00:00:0.84 
+     pre-estimation                         :  00:00:0.3 
+     estimation                             :  00:00:0.12 
+     post-estimation                        :  00:00:0.41 
 Iterations                                  :  7  
 
 Unconstrained optimisation.

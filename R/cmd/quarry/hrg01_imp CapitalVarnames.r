@@ -4,8 +4,6 @@
 #         /lis/012a_asm_main_impSPSS_ALLVARS_ua.Rds    and ... _en version
 
 lisdat <- paste("lis\\",codefile, ".lis",sep="")   # for naming listing file ONLY USED DURING CODING
-lisdatu <- paste("lis\\",codefile, "_ua.lis",sep="")   # for naming listing file W UKRAINIAN LABELS
-lisdate <- paste("lis\\",codefile, "_en.lis",sep="")   # for naming listing file W ENGLISH LABELS
 outdat <- paste("dat\\",codefile,".RData",sep="")   # for naming output file
 sink(lisdat, append = FALSE, type="output")
 

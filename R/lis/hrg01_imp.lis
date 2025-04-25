@@ -27,6 +27,8 @@ Sum       866 1212                  795              240             177
 of SP respondents (1212) exceeds the figure in table 9.11 (1204). Table 9.11 (=Tab 7.9 in the WordDoc)
 indicates lower numbers for Canberra in the group of '<30 minutes' (104) and for Adelaide (122/28/12).
 
+Data file saved: C:/Users/Brosig/Documents/work/hrg05data/hrg01_imp.Rds
+
 
 II) Codebook of saved data set (i.e. after removal of 2 records with splength='RP' so as 
   to achieve consistency (16186 Obs)  w Appendix 9B(7B): Mode choice Case Study Data Dictionary)

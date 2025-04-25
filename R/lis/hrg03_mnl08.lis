@@ -132,7 +132,7 @@ Please acknowledge the use of Apollo by citing Hess & Palma (2019)
 
 Model name                                  : hrg03_mnl8
 Model description                           : hrg03a_mnl8: hrg 2005 p.360ff Choice probabilities
-Model run at                                : 2025-04-24 12:44:24.27951
+Model run at                                : 2025-04-25 07:46:44.613151
 Estimation method                           : bgw
 Model diagnosis                             : Relative function convergence
 Optimisation diagnosis                      : Maximum found
@@ -158,10 +158,10 @@ AIC                                         :  6452.3
 BIC                                         :  6486.92 
 
 Estimated parameters                        : 6
-Time taken (hh:mm:ss)                       :  00:00:0.81 
-     pre-estimation                         :  00:00:0.3 
-     estimation                             :  00:00:0.09 
-     post-estimation                        :  00:00:0.42 
+Time taken (hh:mm:ss)                       :  00:00:0.83 
+     pre-estimation                         :  00:00:0.27 
+     estimation                             :  00:00:0.08 
+     post-estimation                        :  00:00:0.48 
 Iterations                                  :  4  
 
 Unconstrained optimisation.
@@ -185,6 +185,9 @@ Percentage chosen overall          25.33   27.78   10.26   12.87   13.47   10.30
 Percentage chosen when available   25.33   27.78   22.31   22.93   24.92   23.48
 
 
+
+Old result file "hrg03_mnl/hrg03_mnl8_output.txt" removed/overwritten
+Old result file "hrg03_mnl/hrg03_mnl8_model.rds" removed/overwritten
 Model output saved to hrg03_mnl/hrg03_mnl8_output.txt 
 Model object saved to hrg03_mnl/hrg03_mnl8.rds 
 Output is no longer being written to file.
